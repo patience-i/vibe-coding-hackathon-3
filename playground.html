@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Playground - Easy Coding</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <style>
+        /* Playground specific styles */
+        .playground-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .playground-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .code-playground {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            height: calc(100vh - 200px);
+            min-height: 500px;
+        }
+        
+        body.dark-mode .code-playground {
+            background-color: var(--dark-card);
+        }
+        
+        .editor-controls {
+            display: flex;
+            background-color: var(--dark-color);
+            padding: 10px;
+        }
+        
+        .tab {
+            background-color: transparent;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+            transition: var(--transition);
+        }
+        
+        .tab.active {
+            background-color: var(--primary-color);
+        }
+        
+        .editor-container {
+            display: flex;
+            flex-grow: 1;
+            overflow: hidden;
+        }
+        
+        .editor-panels {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #ddd;
+        }
+        
+        body.dark-mode .editor-panels {
+            border-right: 1px solid var(--dark-accent);
+        }
+        
+        .tabs-container {
+            display: flex;
+            background-color: #f8f8f8;
+        }
+        
+        body.dark-mode .tabs-container {
+            background-color: var(--dark-accent);
+        }
+        
+        .editor-tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            background-color: #f8f8f8;
+            border: none;
+            border-right: 1px solid #ddd;
+            font-weight: 600;
+        }
+        
+        body.dark-mode .editor-tab {
+            background-color: var(--dark-accent);
+            border-right: 1px solid var(--dark-bg);
+        }
+        
+        .editor-tab.active {
+            background-color: white;
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        body.dark-mode .editor-tab.active {
+            background-color: var(--dark-card);
+            border-bottom: 2px solid var(--primary-color);
+        }
+        
+        .code-panel {
+            display: none;
+            height: 100%;
+            width: 100%;
+            padding: 15px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            resize: none;
+            border: none;
+            outline: none;
+            background-color: white;
+            flex-grow: 1;
+        }
+        
+        body.dark-mode .code-panel {
+            background-color: var(--dark-card);
+            color: var(--dark-text);
+        }
+        
+        .code-panel.active {
+            display: block;
+        }
+        
+        .result-container {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .result-header {
+            background-color: #f8f8f8;
+            padding: 10px 15px;
+            font-weight: 600;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        body.dark-mode .result-header {
+            background-color: var(--dark-accent);
+            border-bottom: 1px solid var(--dark-bg);
+        }
+        
+        #resultFrame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: white;
+        }
+        
+        .actions-bar {
+            padding: 10px;
+            background-color: #f8f8f8;
+            border-top: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        body.dark-mode .actions-bar {
+            background-color: var(--dark-accent);
+            border-top: 1px solid var(--dark-bg);
+        }
+        
+        #runCodeBtn {
+            background-color: var(--secondary-color);
+        }
+        
+        .playground-tips {
+            margin-top: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+        }
+        
+        body.dark-mode .playground-tips {
+            background-color: var(--dark-card);
+        }
+        
+        .tip-card {
+            background-color: rgba(52, 152, 219, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        body.dark-mode .tip-card {
+            background-color: var(--dark-accent);
+        }
+        
+        .tip-card h4 {
+            margin-top: 0;
+        }
+        
+        .template-select {
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+        }
+        
+        body.dark-mode .template-select {
+            background-color: var(--dark-accent);
+            color: var(--dark-text);
+            border: 1px solid var(--dark-bg);
+        }
+        
+        @media (max-width: 768px) {
+            .editor-container {
+                flex-direction: column;
+            }
+            
+            .editor-panels, .result-container {
+                width: 100%;
+                height: 50%;
+            }
+            
+            .editor-panels {
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+            
+            body.dark-mode .editor-panels {
+                border-bottom: 1px solid var(--dark-accent);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><span class="highlight">Easy</span> Coding</h1>
+            </div>
+            <nav>
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-toggle-label">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses/html.html">HTML</a></li>
+                    <li><a href="courses/css.html">CSS</a></li>
+                    <li><a href="courses/javascript.html">JavaScript</a></li>
+                    <li><a href="playground.html" class="active">Playground</a></li>
+                    <li><a href="references/index.html">References</a></li>
+                    <li><a href="exercises/index.html">Exercises</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+                <div class="theme-label">Dark Mode</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="playground-container">
+        <div class="playground-header">
+            <h1>Code Playground</h1>
+            <p>Try out your HTML, CSS, and JavaScript code directly in your browser!</p>
+        </div>
+        
+        <div class="code-playground">
+            <div class="editor-container">
+                <div class="editor-panels">
+                    <div class="tabs-container">
+                        <button class="editor-tab active" data-tab="html">HTML</button>
+                        <button class="editor-tab" data-tab="css">CSS</button>
+                        <button class="editor-tab" data-tab="js">JavaScript</button>
+                    </div>
+                    <textarea id="htmlEditor" class="code-panel active" placeholder="Write your HTML here...">&lt;!-- Write your HTML here --&gt;
+&lt;h1&gt;Hello, World!&lt;/h1&gt;
+&lt;p&gt;This is my first web page.&lt;/p&gt;
+&lt;button id="myButton"&gt;Click me!&lt;/button&gt;</textarea>
+                    <textarea id="cssEditor" class="code-panel" placeholder="Write your CSS here...">/* Write your CSS here */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    color: #3498db;
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}</textarea>
+                    <textarea id="jsEditor" class="code-panel" placeholder="Write your JavaScript here...">// Write your JavaScript here
+document.getElementById('myButton').addEventListener('click', function() {
+    alert('Button clicked!');
+    
+    // Change heading color
+    document.querySelector('h1').style.color = '#e74c3c';
+});</textarea>
+                </div>
+                <div class="result-container">
+                    <div class="result-header">Output:</div>
+                    <iframe id="resultFrame" title="Code Result"></iframe>
+                </div>
+            </div>
+            <div class="actions-bar">
+                <div>
+                    <select id="templateSelect" class="template-select">
+                        <option value="basic">Basic Template</option>
+                        <option value="bootstrap">Bootstrap Template</option>
+                        <option value="flex">Flexbox Layout</option>
+                        <option value="grid">CSS Grid Layout</option>
+                        <option value="animation">CSS Animation</option>
+                    </select>
+                </div>
+                <button id="runCodeBtn" class="btn-primary">Run Code</button>
+                <button id="shareCodeBtn" class="btn-secondary">Share Code</button>
+            </div>
+        </div>
+        
+        <div class="playground-tips">
+            <h2>Coding Tips</h2>
+            <div class="tip-card">
+                <h4>HTML Structure</h4>
+                <p>Always include the basic HTML structure in your code: <code>&lt;!DOCTYPE html&gt;</code>, <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;body&gt;</code> tags.</p>
+            </div>
+            <div class="tip-card">
+                <h4>CSS Selectors</h4>
+                <p>Use class selectors (<code>.className</code>) for styling multiple elements and ID selectors (<code>#idName</code>) for unique elements.</p>
+            </div>
+            <div class="tip-card">
+                <h4>JavaScript DOM</h4>
+                <p>Access HTML elements using methods like <code>document.getElementById()</code>, <code>document.querySelector()</code>, or <code>document.querySelectorAll()</code>.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3><span class="highlight">Easy</span> Coding</h3>
+                    <p>Learning to code made simple.</p>
+                    <p class="credits">Created by ISHIMWE Patience, a student at Mount Kenya University Rwanda.</p>
+                    <p class="credits">Special thanks to <a href="https://academy.powerlearnprojectafrica.org" target="_blank">Power Learn Project Africa</a> for hosting this website competition.</p>
+                    <p class="site-info">This platform provides interactive coding tutorials, practical exercises, and a sandbox environment to help beginners master web development technologies with ease.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses/html.html">HTML</a></li>
+                        <li><a href="courses/css.html">CSS</a></li>
+                        <li><a href="courses/javascript.html">JavaScript</a></li>
+                        <li><a href="playground.html">Playground</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> info@easycoding.rw</p>
+                    <p><i class="fas fa-map-marker-alt"></i>MKU, Kigali, Rwanda</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Easy Coding. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    ></script>
+    <script src="assets/js/playground.js"></script>
+    <script src="assets/js/dark-mode.js"></script>
+
+</html>

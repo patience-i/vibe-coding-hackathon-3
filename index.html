@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Coding - Learn to Code the Fun Way</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <!-- Open Graph Meta Tags for better social sharing -->
+    <meta property="og:title" content="Easy Coding - Learn to Code the Fun Way">
+    <meta property="og:description" content="Master web development skills with interactive lessons, quizzes and exercises.">
+    <meta property="og:image" content="assets/images/easy-coding-social.png">
+    <meta property="og:url" content="https://easycoding.com">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><span class="highlight">Easy</span> Coding</h1>
+            </div>
+            <nav>
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-toggle-label">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="courses/html.html">HTML</a></li>
+                    <li><a href="courses/css.html">CSS</a></li>
+                    <li><a href="courses/javascript.html">JavaScript</a></li>
+                    <li><a href="playground.html">Playground</a></li>
+                    <li><a href="references/index.html">References</a></li>
+                    <li><a href="exercises/index.html">Exercises</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+                <div class="theme-label">Dark Mode</div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Learn to Code the <span class="highlight">Easy</span> Way</h1>
+                <p>Master web development with fun, interactive lessons designed for beginners.</p>
+                <div class="welcome-message" id="welcomeMessage">
+                    <p>Welcome to Easy Coding!</p>
+                </div>
+                <div class="hero-form">
+                    <input type="text" id="userName" placeholder="Enter your name">
+                    <button id="startLearningBtn" class="btn-primary">Start Learning</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Why Learn With Us?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-code"></i>
+                    <h3>Interactive Learning</h3>
+                    <p>Try code examples directly in your browser and see results instantly.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-puzzle-piece"></i>
+                    <h3>Fun Challenges</h3>
+                    <p>Solve coding puzzles and quizzes to reinforce your knowledge.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-award"></i>
+                    <h3>Track Progress</h3>
+                    <p>Monitor your learning journey with achievement badges and progress tracking.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Real-world Projects</h3>
+                    <p>Apply your skills by building actual websites and applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="courses" class="courses">
+        <div class="container">
+            <h2>Our Courses</h2>
+            <div class="courses-grid">
+                <div class="course" data-course="html">
+                    <div class="course-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3>HTML Basics</h3>
+                    <p>Learn the foundation of all websites with HTML5 tags and structure.</p>
+                    <button class="btn-secondary course-btn">Explore</button>
+                    <div class="course-progress">
+                        <div class="progress-bar" style="width: 0%"></div>
+                        <span class="progress-text">0% Complete</span>
+                    </div>
+                </div>
+                <div class="course" data-course="css">
+                    <div class="course-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h3>CSS Styling</h3>
+                    <p>Master the art of designing beautiful websites with CSS.</p>
+                    <button class="btn-secondary course-btn">Explore</button>
+                    <div class="course-progress">
+                        <div class="progress-bar" style="width: 0%"></div>
+                        <span class="progress-text">0% Complete</span>
+                    </div>
+                </div>
+                <div class="course" data-course="js">
+                    <div class="course-icon">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <h3>JavaScript Fundamentals</h3>
+                    <p>Add interactivity to your websites with JavaScript programming.</p>
+                    <button class="btn-secondary course-btn">Explore</button>
+                    <div class="course-progress">
+                        <div class="progress-bar" style="width: 0%"></div>
+                        <span class="progress-text">0% Complete</span>
+                    </div>
+                </div>
+                <div class="course" data-course="responsive">
+                    <div class="course-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Create websites that look great on all devices and screen sizes.</p>
+                    <button class="btn-secondary course-btn">Explore</button>
+                    <div class="course-progress">
+                        <div class="progress-bar" style="width: 0%"></div>
+                        <span class="progress-text">0% Complete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="playground" class="code-playground">
+        <div class="container">
+            <h2>Code Playground</h2>
+            <p>Try out your HTML, CSS, and JavaScript code directly in your browser!</p>
+            <div class="code-editor">
+                <div class="editor-controls">
+                    <button class="tab active" data-tab="html">HTML</button>
+                    <button class="tab" data-tab="css">CSS</button>
+                    <button class="tab" data-tab="js">JavaScript</button>
+                    <button id="runCodeBtn" class="btn-primary">Run Code</button>
+                </div>
+                <div class="editor-panels">
+                    <textarea id="htmlEditor" class="code-panel active" placeholder="Write your HTML here...">&lt;!-- Write your HTML here --&gt;
+&lt;h1&gt;Hello, World!&lt;/h1&gt;
+&lt;p&gt;This is my first web page.&lt;/p&gt;</textarea>
+                    <textarea id="cssEditor" class="code-panel" placeholder="Write your CSS here...">/* Write your CSS here */
+h1 {
+    color: blue;
+}
+p {
+    font-size: 18px;
+}</textarea>
+                    <textarea id="jsEditor" class="code-panel" placeholder="Write your JavaScript here...">// Write your JavaScript here
+console.log("Hello from JavaScript!");
+// Try changing the text of the heading:
+// document.querySelector('h1').textContent = "JavaScript is awesome!";</textarea>
+                </div>
+                <div class="result-container">
+                    <h3>Output:</h3>
+                    <iframe id="resultFrame" title="Code Result"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mini-quiz">
+        <div class="container">
+            <h2>Test Your Knowledge</h2>
+            <div class="quiz-container" id="quizContainer">
+                <div class="quiz-question active" data-question="1">
+                    <h3>Question 1:</h3>
+                    <p>Which HTML tag is used to create a paragraph?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option">
+                            <input type="radio" name="q1" id="q1a" value="a">
+                            <label for="q1a">&lt;paragraph&gt;</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q1" id="q1b" value="b">
+                            <label for="q1b">&lt;p&gt;</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q1" id="q1c" value="c">
+                            <label for="q1c">&lt;para&gt;</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q1" id="q1d" value="d">
+                            <label for="q1d">&lt;text&gt;</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-question" data-question="2">
+                    <h3>Question 2:</h3>
+                    <p>Which CSS property is used to change the text color?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option">
+                            <input type="radio" name="q2" id="q2a" value="a">
+                            <label for="q2a">text-color</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q2" id="q2b" value="b">
+                            <label for="q2b">font-color</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q2" id="q2c" value="c">
+                            <label for="q2c">color</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q2" id="q2d" value="d">
+                            <label for="q2d">text-style</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-question" data-question="3">
+                    <h3>Question 3:</h3>
+                    <p>Which of these is NOT a JavaScript data type?</p>
+                    <div class="quiz-options">
+                        <div class="quiz-option">
+                            <input type="radio" name="q3" id="q3a" value="a">
+                            <label for="q3a">Boolean</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q3" id="q3b" value="b">
+                            <label for="q3b">String</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q3" id="q3c" value="c">
+                            <label for="q3c">Character</label>
+                        </div>
+                        <div class="quiz-option">
+                            <input type="radio" name="q3" id="q3d" value="d">
+                            <label for="q3d">Number</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-navigation">
+                    <button id="prevQuestion" class="btn-secondary" disabled>Previous</button>
+                    <button id="nextQuestion" class="btn-secondary">Next</button>
+                    <button id="submitQuiz" class="btn-primary" style="display: none;">Submit</button>
+                </div>
+                <div id="quizResults" class="quiz-results" style="display: none;">
+                    <h3>Quiz Results</h3>
+                    <p>You scored <span id="scoreDisplay">0</span> out of 3!</p>
+                    <div id="quizFeedback"></div>
+                    <button id="retakeQuiz" class="btn-secondary">Retake Quiz</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resources" class="resources">
+        <div class="container">
+            <h2>Learning Resources</h2>
+            <div class="resources-grid">
+                <div class="resource">
+                    <i class="fas fa-book"></i>
+                    <h3>Cheat Sheets</h3>
+                    <p>Quick reference guides for HTML tags, CSS properties, and JavaScript methods.</p>
+                    <a href="#" class="resource-link">Download</a>
+                </div>
+                <div class="resource">
+                    <i class="fas fa-video"></i>
+                    <h3>Video Tutorials</h3>
+                    <p>Step-by-step video guides for visual learners.</p>
+                    <a href="#" class="resource-link">Watch Now</a>
+                </div>
+                <div class="resource">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Project Ideas</h3>
+                    <p>Inspiration and guides for practice projects to build your portfolio.</p>
+                    <a href="#" class="resource-link">Explore</a>
+                </div>
+                <div class="resource">
+                    <i class="fas fa-users"></i>
+                    <h3>Community Forum</h3>
+                    <p>Connect with other learners, ask questions, and share your progress.</p>
+                    <a href="#" class="resource-link">Join</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Easy Coding</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Easy Coding was created with a simple mission: make learning to code accessible, fun, and approachable for everyone.</p>
+                    <p>Our team of passionate educators and developers have designed this platform to break down complex concepts into bite-sized, easy-to-understand lessons.</p>
+                    <p>Whether you're a complete beginner or looking to refresh your skills, our interactive approach helps you learn by doing - the most effective way to master coding.</p>
+                </div>
+                <div class="testimonials">
+                    <div class="testimonial">
+                        <div class="testimonial-text">
+                            <p>"Easy Coding made learning HTML and CSS actually enjoyable! The interactive examples helped me understand concepts I struggled with for months."</p>
+                        </div>
+                        <div class="testimonial-author">- Sarah K., Web Designer</div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-text">
+                            <p>"As someone with zero coding experience, I was intimidated to start. This site broke everything down perfectly and now I'm building my own projects!"</p>
+                        </div>
+                        <div class="testimonial-author">- James T., Marketing Professional</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter for new tutorials, tips, and updates.</p>
+            <form id="newsletterForm" class="newsletter-form">
+                <input type="email" id="emailInput" placeholder="Enter your email" required>
+                <button type="submit" class="btn-primary">Subscribe</button>
+            </form>
+            <div id="newsletterMessage"></div>
+        </div>
+    </section>
+
+    <section class="coding-tip">
+        <div class="container">
+            <div class="tip-container">
+                <h3>Coding Tip of the Day</h3>
+                <div id="tipContent">
+                    <p>Use meaningful class and ID names in your HTML to make your CSS more maintainable.</p>
+                </div>
+                <button id="newTipBtn" class="btn-secondary">New Tip</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3><span class="highlight">Easy</span> Coding</h3>
+                    <p>Learning to code made simple.</p>
+                    <p class="credits">Created by ISHIMWE Patience, a student at Mount Kenya University Rwanda.</p>
+                    <p class="credits">Special thanks to <a href="https://academy.powerlearnprojectafrica.org" target="_blank">Power Learn Project Africa</a> for hosting this website competition.</p>
+                    <p class="site-info">This platform provides interactive coding tutorials, practical exercises, and a sandbox environment to help beginners master web development technologies with ease.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses/html.html">HTML</a></li>
+                        <li><a href="courses/css.html">CSS</a></li>
+                        <li><a href="courses/javascript.html">JavaScript</a></li>
+                        <li><a href="playground.html">Playground</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> info@easycoding.rw</p>
+                    <p><i class="fas fa-map-marker-alt"></i>MKU, Kigali, Rwanda</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Easy Coding. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dark-mode.js"></script>
+
+</html>

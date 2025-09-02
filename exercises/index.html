@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercises - Easy Coding</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><span class="highlight">Easy</span> Coding</h1>
+            </div>
+            <nav>
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-toggle-label">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../courses/html.html">HTML</a></li>
+                    <li><a href="../courses/css.html">CSS</a></li>
+                    <li><a href="../courses/javascript.html">JavaScript</a></li>
+                    <li><a href="../playground.html">Playground</a></li>
+                    <li><a href="../references/index.html">References</a></li>
+                    <li><a href="../exercises/index.html" class="active">Exercises</a></li>
+                    <li><a href="../about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+                <div class="theme-label">Dark Mode</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="exercises-main">
+        <div class="container">
+            <h1>Coding Exercises</h1>
+            <p class="intro">Practice your coding skills with these exercises. Complete challenges and test your knowledge.</p>
+            
+            <div class="exercise-categories">
+                <div class="exercise-card">
+                    <div class="exercise-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h2>HTML Exercises</h2>
+                    <p>Practice your HTML skills with these interactive exercises.</p>
+                    <div class="exercise-list">
+                        <ul>
+                            <li><a href="html-basic.html">HTML Basic Exercises</a></li>
+                            <li><a href="html-forms.html">HTML Forms Exercises</a></li>
+                            <li><a href="html-tables.html">HTML Tables Exercises</a></li>
+                            <li><a href="html-media.html">HTML Media Exercises</a></li>
+                        </ul>
+                    </div>
+                    <a href="html-basic.html" class="btn btn-primary">Start Practice</a>
+                </div>
+                
+                <div class="exercise-card">
+                    <div class="exercise-icon">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h2>CSS Exercises</h2>
+                    <p>Test and improve your CSS styling knowledge with these exercises.</p>
+                    <div class="exercise-list">
+                        <ul>
+                            <li><a href="css-basic.html">CSS Basic Exercises</a></li>
+                            <li><a href="css-selectors.html">CSS Selectors Exercises</a></li>
+                            <li><a href="css-layout.html">CSS Layout Exercises</a></li>
+                            <li><a href="css-responsive.html">CSS Responsive Exercises</a></li>
+                        </ul>
+                    </div>
+                    <a href="css-basic.html" class="btn btn-primary">Start Practice</a>
+                </div>
+                
+                <div class="exercise-card">
+                    <div class="exercise-icon">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <h2>JavaScript Exercises</h2>
+                    <p>Challenge yourself with JavaScript problems and interactive coding exercises.</p>
+                    <div class="exercise-list">
+                        <ul>
+                            <li><a href="js-basic.html">JavaScript Basic Exercises</a></li>
+                            <li><a href="js-dom.html">JavaScript DOM Exercises</a></li>
+                            <li><a href="js-functions.html">JavaScript Functions Exercises</a></li>
+                            <li><a href="js-arrays.html">JavaScript Arrays Exercises</a></li>
+                        </ul>
+                    </div>
+                    <a href="js-basic.html" class="btn btn-primary">Start Practice</a>
+                </div>
+            </div>
+            
+            <div class="quizzes-section">
+                <h2>Interactive Quizzes</h2>
+                <p>Test your knowledge with these interactive quizzes. Answer questions and get instant feedback.</p>
+                
+                <div class="quiz-cards">
+                    <div class="quiz-card">
+                        <h3>HTML Fundamentals Quiz</h3>
+                        <p>10 questions | 10 minutes</p>
+                        <div class="difficulty">
+                            <span>Beginner</span>
+                            <div class="difficulty-meter">
+                                <span class="fill"></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <a href="quizzes/html-basic.html" class="btn btn-primary">Take Quiz</a>
+                    </div>
+                    
+                    <div class="quiz-card">
+                        <h3>CSS Flexbox Master</h3>
+                        <p>15 questions | 15 minutes</p>
+                        <div class="difficulty">
+                            <span>Intermediate</span>
+                            <div class="difficulty-meter">
+                                <span class="fill"></span>
+                                <span class="fill"></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <a href="quizzes/css-flexbox.html" class="btn btn-primary">Take Quiz</a>
+                    </div>
+                    
+                    <div class="quiz-card">
+                        <h3>JavaScript Advanced Concepts</h3>
+                        <p>20 questions | 25 minutes</p>
+                        <div class="difficulty">
+                            <span>Advanced</span>
+                            <div class="difficulty-meter">
+                                <span class="fill"></span>
+                                <span class="fill"></span>
+                                <span class="fill"></span>
+                            </div>
+                        </div>
+                        <a href="quizzes/js-advanced.html" class="btn btn-primary">Take Quiz</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="progress-tracker">
+                <h2>Your Progress</h2>
+                <div class="progress-container">
+                    <div id="progress-display">
+                        <p>Login to track your exercise progress</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3><span class="highlight">Easy</span> Coding</h3>
+                    <p>Learning to code made simple.</p>
+                    <p class="credits">Created by ISHIMWE Patience, a student at Mount Kenya University Rwanda.</p>
+                    <p class="credits">Special thanks to <a href="https://academy.powerlearnprojectafrica.org" target="_blank">Power Learn Project Africa</a> for hosting this website competition.</p>
+                    <p class="site-info">This platform provides interactive coding tutorials, practical exercises, and a sandbox environment to help beginners master web development technologies with ease.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../courses/html.html">HTML</a></li>
+                        <li><a href="../courses/css.html">CSS</a></li>
+                        <li><a href="../courses/javascript.html">JavaScript</a></li>
+                        <li><a href="../playground.html">Playground</a></li>
+                        <li><a href="../about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> info@easycoding.rw</p>
+                    <p><i class="fas fa-map-marker-alt"></i>MKU, Kigali, Rwanda</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Easy Coding. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    ></script>
+    <script src="../assets/js/dark-mode.js"></script>
+
+</html>
+

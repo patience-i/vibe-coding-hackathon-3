@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Headings - Easy Coding</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/x-icon">
+    <style>
+        /* Tutorial-specific styles */
+        .tutorial-header {
+            background-color: #E44D26; /* HTML orange color */
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .tutorial-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        body.dark-mode .tutorial-content {
+            background-color: var(--dark-card);
+        }
+        
+        .tutorial-section {
+            margin-bottom: 30px;
+        }
+        
+        .example-box {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .example-header {
+            background-color: #f8f8f8;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            font-weight: 600;
+        }
+        
+        body.dark-mode .example-header {
+            background-color: var(--dark-accent);
+        }
+        
+        .example-code {
+            padding: 15px;
+            background-color: #f8f8f8;
+            font-family: 'Consolas', 'Monaco', monospace;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        body.dark-mode .example-code {
+            background-color: var(--dark-accent);
+        }
+        
+        .example-result {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: white;
+        }
+        
+        body.dark-mode .example-result {
+            background-color: var(--dark-card);
+        }
+        
+        .try-it-yourself {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tutorial-header">
+        <h1>HTML Headings</h1>
+        <p>Learn about HTML heading elements</p>
+    </div>
+
+    <div class="tutorial-content">
+        <div class="tutorial-section">
+            <h2>HTML Headings</h2>
+            <p>HTML headings are titles or subtitles that you want to display on a webpage.</p>
+            <p>HTML headings are defined with the &lt;h1&gt; to &lt;h6&gt; tags.</p>
+            <p>&lt;h1&gt; defines the most important heading. &lt;h6&gt; defines the least important heading.</p>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6&lt;/h6&gt;</div>
+                <div class="example-result">
+                    <h1>Heading 1</h1>
+                    <h2>Heading 2</h2>
+                    <h3>Heading 3</h3>
+                    <h4>Heading 4</h4>
+                    <h5>Heading 5</h5>
+                    <h6>Heading 6</h6>
+                </div>
+            </div>
+            
+            <div class="try-it-yourself">
+                <a href="../playground.html?html=%3C!DOCTYPE%20html%3E%0A%3Chtml%3E%0A%3Cbody%3E%0A%0A%3Ch1%3EHeading%201%3C%2Fh1%3E%0A%3Ch2%3EHeading%202%3C%2Fh2%3E%0A%3Ch3%3EHeading%203%3C%2Fh3%3E%0A%3Ch4%3EHeading%204%3C%2Fh4%3E%0A%3Ch5%3EHeading%205%3C%2Fh5%3E%0A%3Ch6%3EHeading%206%3C%2Fh6%3E%0A%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E" class="btn-primary">Try it Yourself »</a>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>Headings Are Important</h2>
+            <p>Search engines use the headings to index the structure and content of your web pages.</p>
+            <p>Users often skim a page by its headings. It is important to use headings to show the document structure.</p>
+            <p>&lt;h1&gt; headings should be used for main headings, followed by &lt;h2&gt; headings, then the less important &lt;h3&gt;, and so on.</p>
+            <div class="note">
+                <p><strong>Note:</strong> Use HTML headings for headings only. Don't use headings to make text <strong>BIG</strong> or <strong>bold</strong>.</p>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>Bigger Headings</h2>
+            <p>Each HTML heading has a default size. However, you can specify the size for any heading with the <code>style</code> attribute, using the CSS <code>font-size</code> property:</p>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+&lt;h1 style="font-size:60px;"&gt;Heading 1&lt;/h1&gt;</div>
+                <div class="example-result">
+                    <h1 style="font-size:60px;">Heading 1</h1>
+                </div>
+            </div>
+            
+            <div class="try-it-yourself">
+                <a href="../playground.html?html=%3C!DOCTYPE%20html%3E%0A%3Chtml%3E%0A%3Cbody%3E%0A%0A%3Ch1%20style%3D%22font-size%3A60px%3B%22%3EHeading%201%3C%2Fh1%3E%0A%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E" class="btn-primary">Try it Yourself »</a>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>HTML Horizontal Rules</h2>
+            <p>The &lt;hr&gt; tag defines a thematic break in an HTML page, and is most often displayed as a horizontal rule.</p>
+            <p>The &lt;hr&gt; element is used to separate content (or define a change) in an HTML page:</p>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+&lt;h1&gt;This is heading 1&lt;/h1&gt;
+&lt;p&gt;This is some text.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;This is heading 2&lt;/h2&gt;
+&lt;p&gt;This is some other text.&lt;/p&gt;
+&lt;hr&gt;</div>
+                <div class="example-result">
+                    <h1>This is heading 1</h1>
+                    <p>This is some text.</p>
+                    <hr>
+                    <h2>This is heading 2</h2>
+                    <p>This is some other text.</p>
+                    <hr>
+                </div>
+            </div>
+            
+            <div class="try-it-yourself">
+                <a href="../playground.html?html=%3C!DOCTYPE%20html%3E%0A%3Chtml%3E%0A%3Cbody%3E%0A%0A%3Ch1%3EThis%20is%20heading%201%3C%2Fh1%3E%0A%3Cp%3EThis%20is%20some%20text.%3C%2Fp%3E%0A%3Chr%3E%0A%3Ch2%3EThis%20is%20heading%202%3C%2Fh2%3E%0A%3Cp%3EThis%20is%20some%20other%20text.%3C%2Fp%3E%0A%3Chr%3E%0A%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E" class="btn-primary">Try it Yourself »</a>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>The HTML &lt;head&gt; Element</h2>
+            <p>The HTML &lt;head&gt; element is a container for metadata (data about data) and is placed between the &lt;html&gt; tag and the &lt;body&gt; tag.</p>
+            <p>HTML metadata is data about the HTML document. Metadata is not displayed.</p>
+            <p>Metadata typically define the document title, character set, styles, scripts, and other meta information.</p>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="../courses/html.html?section=../tutorials/html-attributes.html" class="btn-secondary">❮ Previous</a>
+            <a href="../courses/html.html?section=../tutorials/html-paragraphs.html" class="btn-primary">Next ❯</a>
+        </div>
+    </div>
+    
+</html>
+

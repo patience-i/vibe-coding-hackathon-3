@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Tutorial - Easy Coding</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/x-icon">
+    <style>
+        /* Course-specific styles */
+        .sidebar {
+            width: 280px;
+            background-color: #f1f1f1;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+            padding-top: 20px;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.dark-mode .sidebar {
+            background-color: var(--dark-card);
+        }
+        
+        .sidebar.collapsed {
+            transform: translateX(-280px);
+        }
+        
+        .sidebar h3 {
+            padding: 0 20px;
+            margin-bottom: 20px;
+        }
+        
+        .sidebar a {
+            display: block;
+            color: var(--text-color);
+            padding: 12px 20px;
+            text-decoration: none;
+            border-left: 4px solid transparent;
+        }
+        
+        .sidebar a:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+            border-left-color: var(--primary-color);
+        }
+        
+        .sidebar a.active {
+            background-color: rgba(52, 152, 219, 0.2);
+            border-left-color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+        
+        .main-content.expanded {
+            margin-left: 0;
+        }
+        
+        .tutorial-header {
+            background-color: #2965f1; /* CSS blue color */
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .tutorial-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        body.dark-mode .tutorial-content {
+            background-color: var(--dark-card);
+        }
+        
+        .tutorial-section {
+            margin-bottom: 30px;
+        }
+        
+        .example-box {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .example-header {
+            background-color: #f8f8f8;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            font-weight: 600;
+        }
+        
+        body.dark-mode .example-header {
+            background-color: var(--dark-accent);
+        }
+        
+        .example-code {
+            padding: 15px;
+            background-color: #f8f8f8;
+            font-family: 'Consolas', 'Monaco', monospace;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        body.dark-mode .example-code {
+            background-color: var(--dark-accent);
+        }
+        
+        .example-result {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: white;
+        }
+        
+        body.dark-mode .example-result {
+            background-color: var(--dark-card);
+        }
+        
+        .try-it-yourself {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .mobile-sidebar-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #2965f1;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 0 50% 50% 0;
+            cursor: pointer;
+            position: fixed;
+            left: 280px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1001;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        
+        .sidebar.collapsed + .main-content .mobile-sidebar-toggle {
+            left: 0;
+        }
+        
+        .mobile-sidebar-toggle:hover {
+            background-color: #1e56d9;
+            box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .mobile-sidebar-toggle i {
+            transition: transform 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .sidebar.collapsed + .main-content .mobile-sidebar-toggle i {
+            transform: rotate(180deg);
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 250px;
+            }
+            
+            .sidebar:not(.collapsed) {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><span class="highlight">Easy</span> Coding</h1>
+            </div>
+            <nav>
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-toggle-label">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="html.html">HTML</a></li>
+                    <li><a href="css.html" class="active">CSS</a></li>
+                    <li><a href="javascript.html">JavaScript</a></li>
+                    <li><a href="../playground.html">Playground</a></li>
+                    <li><a href="../references/index.html">References</a></li>
+                    <li><a href="../exercises/index.html">Exercises</a></li>
+                    <li><a href="../about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+                <div class="theme-label">Dark Mode</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <h3>CSS Tutorial</h3>
+        <a href="css.html" class="active default-section" data-section="css.html">CSS Introduction</a>
+        <a href="../tutorials/css-syntax.html" data-section="../tutorials/css-syntax.html">CSS Syntax</a>
+        <a href="../tutorials/css-selectors.html" data-section="../tutorials/css-selectors.html">CSS Selectors</a>
+        <a href="../tutorials/css-how-to.html" data-section="../tutorials/css-how-to.html">CSS How To</a>
+        <a href="../tutorials/css-colors.html" data-section="../tutorials/css-colors.html">CSS Colors</a>
+        <a href="../tutorials/css-backgrounds.html" data-section="../tutorials/css-backgrounds.html">CSS Backgrounds</a>
+        <a href="../tutorials/css-borders.html" data-section="../tutorials/css-borders.html">CSS Borders</a>
+        <a href="../tutorials/css-margins.html" data-section="../tutorials/css-margins.html">CSS Margins</a>
+        <a href="../tutorials/css-padding.html" data-section="../tutorials/css-padding.html">CSS Padding</a>
+        <a href="../tutorials/css-height-width.html" data-section="../tutorials/css-height-width.html">CSS Height/Width</a>
+        <a href="../tutorials/css-box-model.html" data-section="../tutorials/css-box-model.html">CSS Box Model</a>
+        <a href="../tutorials/css-text.html" data-section="../tutorials/css-text.html">CSS Text</a>
+        <a href="../tutorials/css-fonts.html" data-section="../tutorials/css-fonts.html">CSS Fonts</a>
+        <a href="../tutorials/css-icons.html" data-section="../tutorials/css-icons.html">CSS Icons</a>
+        <a href="../tutorials/css-links.html" data-section="../tutorials/css-links.html">CSS Links</a>
+        <h3>CSS Advanced</h3>
+        <a href="../tutorials/css-display.html" data-section="../tutorials/css-display.html">CSS Display</a>
+        <a href="../tutorials/css-positioning.html" data-section="../tutorials/css-positioning.html">CSS Positioning</a>
+        <a href="../tutorials/css-flexbox.html" data-section="../tutorials/css-flexbox.html">CSS Flexbox</a>
+        <a href="../tutorials/css-grid.html" data-section="../tutorials/css-grid.html">CSS Grid</a>
+        <h3>CSS References</h3>
+        <a href="../references/css-properties.html">CSS Properties Reference</a>
+        <a href="../references/css-selectors.html">CSS Selector Reference</a>
+        <h3>CSS Exercises</h3>
+        <a href="../exercises/css-exercises.html">CSS Exercises</a>
+        <a href="../exercises/css-quiz.html">CSS Quiz</a>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        <button class="mobile-sidebar-toggle" id="sidebarToggle">
+            <i class="fas fa-chevron-left" id="toggleIcon"></i>
+        </button>
+
+        <div class="tutorial-header">
+            <h1>CSS Tutorial</h1>
+            <p>Learn CSS to style and layout your web pages</p>
+        </div>
+
+        <div class="tutorial-content">
+            <div class="tutorial-section">
+                <h2>What is CSS?</h2>
+                <ul>
+                    <li>CSS stands for Cascading Style Sheets</li>
+                    <li>CSS describes how HTML elements are to be displayed on screen, paper, or in other media</li>
+                    <li>CSS saves a lot of work. It can control the layout of multiple web pages all at once</li>
+                    <li>External stylesheets are stored in CSS files</li>
+                </ul>
+            </div>
+
+            <div class="tutorial-section">
+                <h2>Why Use CSS?</h2>
+                <p>CSS is used to define styles for your web pages, including the design, layout and variations in display for different devices and screen sizes.</p>
+            </div>
+
+            <div class="tutorial-section">
+                <h2>CSS Example</h2>
+                
+                <div class="example-box">
+                    <div class="example-header">Example:</div>
+                    <div class="example-code">
+body {
+    background-color: lightblue;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+p {
+    font-family: Verdana;
+    font-size: 20px;
+}</div>
+                </div>
+                
+                <div class="try-it-yourself">
+                    <a href="../playground.html?css=body%20%7B%0A%20%20%20%20background-color%3A%20lightblue%3B%0A%7D%0A%0Ah1%20%7B%0A%20%20%20%20color%3A%20white%3B%0A%20%20%20%20text-align%3A%20center%3B%0A%7D%0A%0Ap%20%7B%0A%20%20%20%20font-family%3A%20Verdana%3B%0A%20%20%20%20font-size%3A%2020px%3B%0A%7D" class="btn-primary">Try it Yourself »</a>
+                </div>
+            </div>
+
+            <div class="tutorial-section">
+                <h2>CSS Syntax</h2>
+                <p>A CSS rule consists of a selector and a declaration block:</p>
+                
+                <img src="../assets/images/css-syntax.png" alt="CSS Syntax" style="max-width: 100%;">
+                
+                <p>The selector points to the HTML element you want to style.</p>
+                <p>The declaration block contains one or more declarations separated by semicolons.</p>
+                <p>Each declaration includes a CSS property name and a value, separated by a colon.</p>
+                <p>For example:</p>
+                <div class="example-code">
+selector {
+    property: value;
+    property: value;
+}</div>
+                
+                <p>A CSS declaration always ends with a semicolon, and declaration blocks are surrounded by curly braces.</p>
+            </div>
+
+            <div class="tutorial-section">
+                <h2>CSS Selectors</h2>
+                <p>CSS selectors are used to "find" (or select) the HTML elements you want to style.</p>
+                <p>We can divide CSS selectors into five categories:</p>
+                <ul>
+                    <li>Simple selectors (select elements based on name, id, class)</li>
+                    <li>Combinator selectors (select elements based on a specific relationship between them)</li>
+                    <li>Pseudo-class selectors (select elements based on a certain state)</li>
+                    <li>Pseudo-elements selectors (select and style a part of an element)</li>
+                    <li>Attribute selectors (select elements based on an attribute or attribute value)</li>
+                </ul>
+                
+                <h3>The CSS element Selector</h3>
+                <p>The element selector selects HTML elements based on the element name.</p>
+                <div class="example-code">
+p {
+    text-align: center;
+    color: red;
+}</div>
+                
+                <h3>The CSS id Selector</h3>
+                <p>The id selector uses the id attribute of an HTML element to select a specific element.</p>
+                <p>The id of an element is unique within a page, so the id selector is used to select one unique element.</p>
+                <div class="example-code">
+#para1 {
+    text-align: center;
+    color: red;
+}</div>
+                
+                <h3>The CSS class Selector</h3>
+                <p>The class selector selects HTML elements with a specific class attribute.</p>
+                <p>To select elements with a specific class, write a period (.) character, followed by the class name.</p>
+                <div class="example-code">
+.center {
+    text-align: center;
+    color: red;
+}</div>
+            </div>
+
+            <div class="tutorial-section">
+                <h2>How To Add CSS</h2>
+                <p>There are three ways of inserting a style sheet:</p>
+                <ul>
+                    <li>External CSS</li>
+                    <li>Internal CSS</li>
+                    <li>Inline CSS</li>
+                </ul>
+                
+                <h3>External CSS</h3>
+                <p>With an external style sheet, you can change the look of an entire website by changing just one file!</p>
+                <p>Each HTML page must include a reference to the external style sheet file inside the &lt;link&gt; element, inside the head section.</p>
+                <div class="example-code">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel="stylesheet" href="mystyle.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;This is a heading&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button disabled class="btn-secondary">❮ Previous</button>
+                <a href="../tutorials/css-syntax.html" class="btn-primary">Next ❯</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3><span class="highlight">Easy</span> Coding</h3>
+                    <p>Learning to code made simple.</p>
+                    <p class="credits">Created by ISHIMWE Patience, a student at Mount Kenya University Rwanda.</p>
+                    <p class="credits">Special thanks to <a href="https://academy.powerlearnprojectafrica.org" target="_blank">Power Learn Project Africa</a> for hosting this website competition.</p>
+                    <p class="site-info">This platform provides interactive coding tutorials, practical exercises, and a sandbox environment to help beginners master web development technologies with ease.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="html.html">HTML</a></li>
+                        <li><a href="css.html">CSS</a></li>
+                        <li><a href="javascript.html">JavaScript</a></li>
+                        <li><a href="../playground.html">Playground</a></li>
+                        <li><a href="../about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> info@easycoding.rw</p>
+                    <p><i class="fas fa-map-marker-alt"></i>MKU, Kigali, Rwanda</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Easy Coding. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    ></script>
+    <script src="../assets/js/course-sections.js"></script>
+    <script>
+        // Enhanced sidebar toggle functionality with hover effect
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
+        const toggleIcon = document.getElementById('toggleIcon');
+        
+        // Set initial state - sidebar visible by default
+        let sidebarVisible = true;
+        
+        // Check if there's a saved preference
+        if (localStorage.getItem('sidebarState') === 'collapsed') {
+            sidebar.classList.add('collapsed');
+            mainContent.classList.add('expanded');
+            sidebarVisible = false;
+        }
+        
+        sidebarToggle.addEventListener('click', function() {
+            sidebarVisible = !sidebarVisible;
+            
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+            
+            // Save state to localStorage
+            localStorage.setItem('sidebarState', sidebarVisible ? 'expanded' : 'collapsed');
+        });
+    </script>
+    <script src="../assets/js/dark-mode.js"></script>
+
+</html>
+

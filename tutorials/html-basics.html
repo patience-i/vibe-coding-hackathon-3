@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Basics - Easy Coding</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/x-icon">
+    <style>
+        /* Tutorial-specific styles */
+        .tutorial-header {
+            background-color: #E44D26; /* HTML orange color */
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .tutorial-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        body.dark-mode .tutorial-content {
+            background-color: var(--dark-card);
+        }
+        
+        .tutorial-section {
+            margin-bottom: 30px;
+        }
+        
+        .example-box {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .example-header {
+            background-color: #f8f8f8;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            font-weight: 600;
+        }
+        
+        body.dark-mode .example-header {
+            background-color: var(--dark-accent);
+        }
+        
+        .example-code {
+            padding: 15px;
+            background-color: #f8f8f8;
+            font-family: 'Consolas', 'Monaco', monospace;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        body.dark-mode .example-code {
+            background-color: var(--dark-accent);
+        }
+        
+        .example-result {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: white;
+        }
+        
+        body.dark-mode .example-result {
+            background-color: var(--dark-card);
+        }
+        
+        .try-it-yourself {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tutorial-header">
+        <h1>HTML Basics</h1>
+        <p>Learn the fundamentals of HTML</p>
+    </div>
+
+    <div class="tutorial-content">
+        <div class="tutorial-section">
+            <h2>What is HTML?</h2>
+            <ul>
+                <li>HTML stands for Hyper Text Markup Language</li>
+                <li>HTML is the standard markup language for creating Web pages</li>
+                <li>HTML describes the structure of a Web page</li>
+                <li>HTML consists of a series of elements</li>
+                <li>HTML elements tell the browser how to display the content</li>
+            </ul>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>HTML Page Structure</h2>
+            <p>Below is a visualization of an HTML page structure:</p>
+            <div class="example-box">
+                <div class="example-header">The basic structure of an HTML page:</div>
+                <div class="example-code">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h1&gt;My First Heading&lt;/h1&gt;
+    &lt;p&gt;My first paragraph.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</div>
+                <div class="example-result">
+                    <h1>My First Heading</h1>
+                    <p>My first paragraph.</p>
+                </div>
+            </div>
+            
+            <div class="try-it-yourself">
+                <a href="../playground.html?html=%3C!DOCTYPE%20html%3E%0A%3Chtml%3E%0A%3Chead%3E%0A%20%20%20%20%3Ctitle%3EPage%20Title%3C%2Ftitle%3E%0A%3C%2Fhead%3E%0A%3Cbody%3E%0A%0A%20%20%20%20%3Ch1%3EMy%20First%20Heading%3C%2Fh1%3E%0A%20%20%20%20%3Cp%3EMy%20first%20paragraph.%3C%2Fp%3E%0A%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E" class="btn-primary">Try it Yourself »</a>
+            </div>
+            
+            <p>Let's break down this HTML document:</p>
+            <ul>
+                <li>The <code>&lt;!DOCTYPE html&gt;</code> declaration defines this document to be HTML5</li>
+                <li>The <code>&lt;html&gt;</code> element is the root element of an HTML page</li>
+                <li>The <code>&lt;head&gt;</code> element contains meta information about the document</li>
+                <li>The <code>&lt;title&gt;</code> element specifies a title for the document</li>
+                <li>The <code>&lt;body&gt;</code> element contains the visible page content</li>
+                <li>The <code>&lt;h1&gt;</code> element defines a large heading</li>
+                <li>The <code>&lt;p&gt;</code> element defines a paragraph</li>
+            </ul>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>HTML Elements</h2>
+            <p>An HTML element is defined by a start tag, some content, and an end tag:</p>
+            <div class="example-code">&lt;tagname&gt;Content goes here...&lt;/tagname&gt;</div>
+            <p>Examples of HTML elements:</p>
+            <ul>
+                <li><code>&lt;h1&gt;My First Heading&lt;/h1&gt;</code></li>
+                <li><code>&lt;p&gt;My first paragraph.&lt;/p&gt;</code></li>
+                <li><code>&lt;br&gt;</code> (Note: Empty elements are closed without an end tag)</li>
+            </ul>
+            <div class="note">
+                <p><strong>Note:</strong> Some HTML elements have no content (like the <code>&lt;br&gt;</code> element). These elements are called empty elements. Empty elements do not have an end tag!</p>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>Web Browsers</h2>
+            <p>The purpose of a web browser (Chrome, Edge, Firefox, Safari) is to read HTML documents and display them correctly.</p>
+            <p>A browser does not display the HTML tags, but uses them to determine how to display the document:</p>
+            <div class="example-box">
+                <div class="example-header">How browsers display HTML:</div>
+                <div class="example-result">
+                    <h1>My First Heading</h1>
+                    <p>My first paragraph.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>HTML Page Structure</h2>
+            <p>Below is a visualization of a typical HTML page structure:</p>
+            <div class="example-code">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Document Title&lt;/title&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="description" content="Page description"&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;nav&gt;
+            &lt;!-- Navigation links --&gt;
+            &lt;a href="/"&gt;Home&lt;/a&gt;
+            &lt;a href="/about"&gt;About&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    
+    &lt;main&gt;
+        &lt;h1&gt;Main Heading&lt;/h1&gt;
+        &lt;section&gt;
+            &lt;h2&gt;Section Heading&lt;/h2&gt;
+            &lt;p&gt;Section content...&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;article&gt;
+            &lt;h2&gt;Article Heading&lt;/h2&gt;
+            &lt;p&gt;Article content...&lt;/p&gt;
+        &lt;/article&gt;
+    &lt;/main&gt;
+    
+    &lt;aside&gt;
+        &lt;h3&gt;Sidebar&lt;/h3&gt;
+        &lt;p&gt;Additional information...&lt;/p&gt;
+    &lt;/aside&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;Copyright © 2025&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>HTML History</h2>
+            <p>Since its creation in 1991, HTML has gone through many evolutions:</p>
+            <ul>
+                <li>1989/1990: HTML concepts created by Tim Berners-Lee</li>
+                <li>1991: First HTML document described publicly</li>
+                <li>1995: HTML 2.0</li>
+                <li>1997: HTML 3.2</li>
+                <li>1999: HTML 4.01</li>
+                <li>2000-2006: XHTML era</li>
+                <li>2014: HTML5 becomes a W3C recommendation</li>
+                <li>Ongoing: HTML is constantly evolving</li>
+            </ul>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="../courses/html.html?section=../courses/html.html" class="btn-secondary">❮ Previous</a>
+            <a href="../courses/html.html?section=../tutorials/html-elements.html" class="btn-primary">Next ❯</a>
+        </div>
+    </div>
+    
+</html>
+

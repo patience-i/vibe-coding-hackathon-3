@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS How To - Easy Coding</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/x-icon">
+    <style>
+        /* Tutorial-specific styles */
+        .tutorial-header {
+            background-color: #2965f1; /* CSS blue color */
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .tutorial-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        body.dark-mode .tutorial-content {
+            background-color: var(--dark-card);
+        }
+        
+        .tutorial-section {
+            margin-bottom: 30px;
+        }
+        
+        .example-box {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .example-header {
+            background-color: #f8f8f8;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            font-weight: 600;
+        }
+        
+        body.dark-mode .example-header {
+            background-color: var(--dark-accent);
+        }
+        
+        .example-code {
+            padding: 15px;
+            background-color: #f8f8f8;
+            font-family: 'Consolas', 'Monaco', monospace;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        body.dark-mode .example-code {
+            background-color: var(--dark-accent);
+        }
+        
+        .example-result {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: white;
+        }
+        
+        body.dark-mode .example-result {
+            background-color: var(--dark-card);
+        }
+        
+        .try-it-yourself {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tutorial-header">
+        <h1>CSS How To</h1>
+        <p>Learn how to add CSS to your HTML documents</p>
+    </div>
+
+    <div class="tutorial-content">
+        <div class="tutorial-section">
+            <h2>How To Add CSS</h2>
+            <p>When a browser reads a style sheet, it will format the HTML document according to the information in the style sheet.</p>
+            <p>There are three ways of inserting a style sheet:</p>
+            <ul>
+                <li>External CSS</li>
+                <li>Internal CSS</li>
+                <li>Inline CSS</li>
+            </ul>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>External CSS</h2>
+            <p>With an external style sheet, you can change the look of an entire website by changing just one file!</p>
+            <p>Each HTML page must include a reference to the external style sheet file inside the link element, inside the head section.</p>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;This is a heading&lt;/h1&gt;
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</div>
+            </div>
+            
+            <p>An external style sheet can be written in any text editor, and must be saved with a .css extension. Here's an example of what the "styles.css" file might look like:</p>
+            
+            <div class="example-code">
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  margin-left: 20px;
+}
+
+p {
+  font-size: 18px;
+}</div>
+            
+            <div class="try-it-yourself">
+                <a href="../playground.html?html=%3C!DOCTYPE%20html%3E%0A%3Chtml%3E%0A%3Chead%3E%0A%20%20%3Cstyle%3E%0A%20%20body%20%7B%0A%20%20%20%20background-color%3A%20lightblue%3B%0A%20%20%7D%0A%0A%20%20h1%20%7B%0A%20%20%20%20color%3A%20navy%3B%0A%20%20%20%20margin-left%3A%2020px%3B%0A%20%20%7D%0A%0A%20%20p%20%7B%0A%20%20%20%20font-size%3A%2018px%3B%0A%20%20%7D%0A%20%20%3C%2Fstyle%3E%0A%3C%2Fhead%3E%0A%3Cbody%3E%0A%0A%3Ch1%3EThis%20is%20a%20heading%3C%2Fh1%3E%0A%3Cp%3EThis%20is%20a%20paragraph.%3C%2Fp%3E%0A%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E" class="btn-primary">Try it Yourself »</a>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>Internal CSS</h2>
+            <p>An internal style sheet may be used if one single HTML page has a unique style.</p>
+            <p>The internal style is defined inside the &lt;style&gt; element, inside the head section.</p>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;style&gt;
+    body {
+      background-color: linen;
+    }
+
+    h1 {
+      color: maroon;
+      margin-left: 40px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;This is a heading&lt;/h1&gt;
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</div>
+            </div>
+            
+            <div class="try-it-yourself">
+                <a href="../playground.html?html=%3C!DOCTYPE%20html%3E%0A%3Chtml%3E%0A%3Chead%3E%0A%20%20%3Cstyle%3E%0A%20%20%20%20body%20%7B%0A%20%20%20%20%20%20background-color%3A%20linen%3B%0A%20%20%20%20%7D%0A%0A%20%20%20%20h1%20%7B%0A%20%20%20%20%20%20color%3A%20maroon%3B%0A%20%20%20%20%20%20margin-left%3A%2040px%3B%0A%20%20%20%20%7D%0A%20%20%3C%2Fstyle%3E%0A%3C%2Fhead%3E%0A%3Cbody%3E%0A%0A%3Ch1%3EThis%20is%20a%20heading%3C%2Fh1%3E%0A%3Cp%3EThis%20is%20a%20paragraph.%3C%2Fp%3E%0A%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E" class="btn-primary">Try it Yourself »</a>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>Inline CSS</h2>
+            <p>An inline style may be used to apply a unique style for a single element.</p>
+            <p>To use inline styles, add the style attribute to the relevant element. The style attribute can contain any CSS property.</p>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1 style="color:blue;text-align:center;"&gt;This is a heading&lt;/h1&gt;
+&lt;p style="color:red;"&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</div>
+            </div>
+            
+            <div class="try-it-yourself">
+                <a href="../playground.html?html=%3C!DOCTYPE%20html%3E%0A%3Chtml%3E%0A%3Cbody%3E%0A%0A%3Ch1%20style%3D%22color%3Ablue%3Btext-align%3Acenter%3B%22%3EThis%20is%20a%20heading%3C%2Fh1%3E%0A%3Cp%20style%3D%22color%3Ared%3B%22%3EThis%20is%20a%20paragraph.%3C%2Fp%3E%0A%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E" class="btn-primary">Try it Yourself »</a>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>Multiple Style Sheets</h2>
+            <p>If some properties have been defined for the same selector (element) in different style sheets, the value from the last read style sheet will be used.</p>
+            <p>Assume that an external style sheet has the following style for the h1 element:</p>
+            
+            <div class="example-code">
+h1 {
+  color: navy;
+}</div>
+            
+            <p>Then, assume that an internal style sheet also has the following style for the h1 element:</p>
+            
+            <div class="example-code">
+h1 {
+  color: orange;
+}</div>
+            
+            <p>If the internal style is defined after the link to the external style sheet, the h1 elements will be "orange":</p>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+  &lt;style&gt;
+    h1 {
+      color: orange;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;</div>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>Cascading Order</h2>
+            <p>What style will be used when there is more than one style specified for an HTML element?</p>
+            <p>All the styles in a page will "cascade" into a new "virtual" style sheet by the following rules, where number one has the highest priority:</p>
+            <ol>
+                <li>Inline style (inside an HTML element)</li>
+                <li>External and internal style sheets (in the head section)</li>
+                <li>Browser default</li>
+            </ol>
+            <p>So, an inline style has the highest priority, and will override external and internal styles and browser defaults.</p>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="../courses/css.html?section=../tutorials/css-selectors.html" class="btn-secondary">❮ Previous</a>
+            <a href="../courses/css.html?section=../tutorials/css-colors.html" class="btn-primary">Next ❯</a>
+        </div>
+    </div>
+    
+</html>
+

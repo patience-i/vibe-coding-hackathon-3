@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tutorial - Easy Coding</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/x-icon">
+    <style>
+        /* Course-specific styles */
+        .sidebar {
+            width: 280px;
+            background-color: #f1f1f1;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+            padding-top: 20px;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.dark-mode .sidebar {
+            background-color: var(--dark-card);
+        }
+        
+        .sidebar.collapsed {
+            transform: translateX(-280px);
+        }
+        
+        .sidebar h3 {
+            padding: 0 20px;
+            margin-bottom: 20px;
+        }
+        
+        .sidebar a {
+            display: block;
+            color: var(--text-color);
+            padding: 12px 20px;
+            text-decoration: none;
+            border-left: 4px solid transparent;
+        }
+        
+        .sidebar a:hover {
+            background-color: rgba(247, 223, 30, 0.1);
+        }
+        
+        .sidebar a.active {
+            background-color: rgba(247, 223, 30, 0.2);
+            border-left-color: #F7DF1E; /* JavaScript yellow color */
+            font-weight: 600;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+        
+        .main-content.expanded {
+            margin-left: 0;
+        }
+        
+        .tutorial-header {
+            background-color: #F7DF1E; /* JavaScript yellow color */
+            color: black;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .tutorial-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        body.dark-mode .tutorial-content {
+            background-color: var(--dark-card);
+        }
+        
+        .tutorial-section {
+            margin-bottom: 30px;
+        }
+        
+        .example-box {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .example-header {
+            background-color: #f8f8f8;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            font-weight: 600;
+        }
+        
+        body.dark-mode .example-header {
+            background-color: var(--dark-accent);
+        }
+        
+        .example-code {
+            padding: 15px;
+            background-color: #f8f8f8;
+            font-family: 'Consolas', 'Monaco', monospace;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        body.dark-mode .example-code {
+            background-color: var(--dark-accent);
+        }
+        
+        .example-result {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: white;
+        }
+        
+        body.dark-mode .example-result {
+            background-color: var(--dark-card);
+        }
+        
+        .try-it-yourself {
+            text-align: right;
+            margin-top: 10px;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .mobile-sidebar-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F7DF1E;
+            color: black;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 0 50% 50% 0;
+            cursor: pointer;
+            position: fixed;
+            left: 280px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1001;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        
+        .sidebar.collapsed + .main-content .mobile-sidebar-toggle {
+            left: 0;
+        }
+        
+        .mobile-sidebar-toggle:hover {
+            background-color: #e6d01d;
+            box-shadow: 3px 0 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .mobile-sidebar-toggle i {
+            transition: transform 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .sidebar.collapsed + .main-content .mobile-sidebar-toggle i {
+            transform: rotate(180deg);
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 250px;
+            }
+            
+            .sidebar:not(.collapsed) {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><span class="highlight">Easy</span> Coding</h1>
+            </div>
+            <nav>
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-toggle-label">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="html.html">HTML</a></li>
+                    <li><a href="css.html">CSS</a></li>
+                    <li><a href="javascript.html" class="active">JavaScript</a></li>
+                    <li><a href="../playground.html">Playground</a></li>
+                    <li><a href="../references/index.html">References</a></li>
+                    <li><a href="../exercises/index.html">Exercises</a></li>
+                    <li><a href="../about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+                <div class="theme-label">Dark Mode</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar" id="sidebar">
+        <h3>JavaScript Tutorial</h3>
+        <a href="javascript.html" class="active default-section" data-section="javascript.html">JavaScript Introduction</a>
+        <a href="../tutorials/javascript-syntax.html" data-section="../tutorials/javascript-syntax.html">JavaScript Syntax</a>
+        <a href="../tutorials/javascript-variables.html" data-section="../tutorials/javascript-variables.html">JavaScript Variables</a>
+        <a href="../tutorials/javascript-operators.html" data-section="../tutorials/javascript-operators.html">JavaScript Operators</a>
+        <a href="../tutorials/javascript-data-types.html" data-section="../tutorials/javascript-data-types.html">JavaScript Data Types</a>
+        <a href="../tutorials/javascript-functions.html" data-section="../tutorials/javascript-functions.html">JavaScript Functions</a>
+        <a href="../tutorials/javascript-objects.html" data-section="../tutorials/javascript-objects.html">JavaScript Objects</a>
+        <a href="../tutorials/javascript-events.html" data-section="../tutorials/javascript-events.html">JavaScript Events</a>
+        <a href="../tutorials/javascript-strings.html" data-section="../tutorials/javascript-strings.html">JavaScript Strings</a>
+        <a href="../tutorials/javascript-arrays.html" data-section="../tutorials/javascript-arrays.html">JavaScript Arrays</a>
+        <a href="../tutorials/javascript-conditions.html" data-section="../tutorials/javascript-conditions.html">JavaScript Conditions</a>
+        <a href="../tutorials/javascript-loops.html" data-section="../tutorials/javascript-loops.html">JavaScript Loops</a>
+        <h3>JavaScript Advanced</h3>
+        <a href="../tutorials/javascript-dom.html" data-section="../tutorials/javascript-dom.html">JavaScript DOM</a>
+        <a href="../tutorials/javascript-dom-manipulation.html" data-section="../tutorials/javascript-dom-manipulation.html">DOM Manipulation</a>
+        <a href="../tutorials/javascript-events-advanced.html" data-section="../tutorials/javascript-events-advanced.html">Event Handling</a>
+        <a href="../tutorials/javascript-async.html" data-section="../tutorials/javascript-async.html">Async JavaScript</a>
+        <a href="../tutorials/javascript-promises.html" data-section="../tutorials/javascript-promises.html">JavaScript Promises</a>
+        <h3>References</h3>
+        <a href="../references/javascript-methods.html">JavaScript Methods</a>
+        <a href="../references/javascript-dom-objects.html">DOM Objects</a>
+        <h3>Exercises</h3>
+        <a href="../exercises/javascript-exercises.html">JavaScript Exercises</a>
+        <a href="../exercises/javascript-quiz.html">JavaScript Quiz</a>
+    </div>
+
+    <div class="main-content" id="mainContent">
+        <button class="mobile-sidebar-toggle" id="sidebarToggle">
+            <i class="fas fa-chevron-left" id="toggleIcon"></i>
+        </button>
+
+        <div class="tutorial-header">
+            <h1>JavaScript Tutorial</h1>
+            <p>Learn the programming language of the web</p>
+        </div>
+
+        <div class="tutorial-content">
+            <div class="tutorial-section">
+                <h2>What is JavaScript?</h2>
+                <ul>
+                    <li>JavaScript is the programming language of the Web</li>
+                    <li>JavaScript can update and change both HTML and CSS</li>
+                    <li>JavaScript can calculate, manipulate and validate data</li>
+                    <li>JavaScript enables interactive web pages</li>
+                </ul>
+            </div>
+
+            <div class="tutorial-section">
+                <h2>A Simple JavaScript Example</h2>
+                <div class="example-box">
+                    <div class="example-header">Example</div>
+                    <div class="example-code">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;JavaScript Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h1&gt;My First JavaScript&lt;/h1&gt;
+    &lt;button onclick="document.getElementById('demo').innerHTML = 'Hello JavaScript!'">Click me!&lt;/button&gt;
+    &lt;p id="demo"&gt;This text will change.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</div>
+                    <div class="example-result">
+                        <h1>My First JavaScript</h1>
+                        <button onclick="document.getElementById('demoExample').innerHTML = 'Hello JavaScript!'">Click me!</button>
+                        <p id="demoExample">This text will change.</p>
+                    </div>
+                </div>
+                <div class="try-it-yourself">
+                    <a href="../playground.html?lang=javascript&code=function%20sayHello()%20%7B%0A%20%20%20%20document.getElementById('demo').innerHTML%20%3D%20'Hello%20JavaScript!'%3B%0A%7D" class="btn-primary">Try it yourself</a>
+                </div>
+            </div>
+
+            <div class="tutorial-section">
+                <h2>JavaScript Can Change HTML Content</h2>
+                <p>One of many JavaScript HTML methods is <code>getElementById()</code>.</p>
+                <p>This example uses the method to "find" an HTML element (with id="demo") and changes the element content (innerHTML) to "Hello JavaScript":</p>
+                <div class="example-code">document.getElementById("demo").innerHTML = "Hello JavaScript";</div>
+                <p>JavaScript accepts both double and single quotes:</p>
+                <div class="example-code">document.getElementById('demo').innerHTML = 'Hello JavaScript';</div>
+            </div>
+
+            <div class="tutorial-section">
+                <h2>JavaScript in &lt;head&gt; or &lt;body&gt;</h2>
+                <p>You can place any number of scripts in an HTML document.</p>
+                <p>Scripts can be placed in the &lt;body&gt;, or in the &lt;head&gt; section of an HTML page, or in both.</p>
+                <p>It's a good practice to place scripts at the bottom of the &lt;body&gt; element to improve page load performance.</p>
+            </div>
+
+            <div class="navigation-buttons">
+                <button disabled class="btn-secondary">❮ Previous</button>
+                <a href="../tutorials/javascript-syntax.html" class="btn-primary">Next ❯</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3><span class="highlight">Easy</span> Coding</h3>
+                    <p>Learning to code made simple.</p>
+                    <p class="credits">Created by ISHIMWE Patience, a student at Mount Kenya University Rwanda.</p>
+                    <p class="credits">Special thanks to <a href="https://academy.powerlearnprojectafrica.org" target="_blank">Power Learn Project Africa</a> for hosting this website competition.</p>
+                    <p class="site-info">This platform provides interactive coding tutorials, practical exercises, and a sandbox environment to help beginners master web development technologies with ease.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="html.html">HTML</a></li>
+                        <li><a href="css.html">CSS</a></li>
+                        <li><a href="javascript.html">JavaScript</a></li>
+                        <li><a href="../playground.html">Playground</a></li>
+                        <li><a href="../about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> info@easycoding.rw</p>
+                    <p><i class="fas fa-map-marker-alt"></i>MKU, Kigali, Rwanda</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Easy Coding. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    ></script>
+    <script src="../assets/js/course-sections.js"></script>
+    <script>
+        // Enhanced sidebar toggle functionality with hover effect
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
+        const toggleIcon = document.getElementById('toggleIcon');
+        
+        // Set initial state - sidebar visible by default
+        let sidebarVisible = true;
+        
+        // Check if there's a saved preference
+        if (localStorage.getItem('sidebarState') === 'collapsed') {
+            sidebar.classList.add('collapsed');
+            mainContent.classList.add('expanded');
+            sidebarVisible = false;
+        }
+        
+        sidebarToggle.addEventListener('click', function() {
+            sidebarVisible = !sidebarVisible;
+            
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+            
+            // Save state to localStorage
+            localStorage.setItem('sidebarState', sidebarVisible ? 'expanded' : 'collapsed');
+        });
+    </script>
+    <script src="../assets/js/dark-mode.js"></script>
+
+</html>

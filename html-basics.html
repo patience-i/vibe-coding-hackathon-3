@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Basics - Easy Coding</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <style>
+        /* Additional styles for course content */
+        .course-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .lesson-section {
+            margin-bottom: 40px;
+        }
+        
+        .code-example {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .example-output {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .practice-exercise {
+            background-color: rgba(46, 204, 113, 0.1);
+            border-left: 5px solid #2ecc71;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .lesson-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .back-to-courses {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        /* For code highlighting */
+        .tag {
+            color: #e74c3c;
+        }
+        
+        .attribute {
+            color: #9b59b6;
+        }
+        
+        .value {
+            color: #3498db;
+        }
+        
+        .comment {
+            color: #7f8c8d;
+        }
+        
+        body.dark-mode .course-content {
+            background-color: var(--dark-card);
+            color: var(--dark-text);
+        }
+        
+        body.dark-mode .code-example {
+            background-color: #1a1a2e;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><span class="highlight">Easy</span> Coding</h1>
+            </div>
+            <nav>
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-toggle-label">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#courses" class="active">Courses</a></li>
+                    <li><a href="index.html#playground">Code Playground</a></li>
+                    <li><a href="index.html#resources">Resources</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                </ul>
+            </nav>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+                <div class="theme-label">Dark Mode</div>
+            </div>
+        </div>
+    </header>
+
+    <section class="course-header">
+        <div class="container">
+            <div class="course-info">
+                <h1><i class="fab fa-html5"></i> HTML Basics</h1>
+                <p>Learn the foundation of all websites with HTML5 tags and structure.</p>
+                <div class="course-progress">
+                    <div class="progress-bar" id="courseProgressBar" style="width: 0%"></div>
+                    <span class="progress-text" id="courseProgressText">0% Complete</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-content">
+        <div class="container">
+            <div class="course-content">
+                <div class="lesson-section">
+                    <h2>What is HTML?</h2>
+                    <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page and consists of a series of elements that tell the browser how to display the content.</p>
+                    <p>HTML elements are represented by tags, which are enclosed in angle brackets. Most elements have an opening tag and a closing tag.</p>
+                </div>
+
+                <div class="lesson-section">
+                    <h2>Basic HTML Document Structure</h2>
+                    <p>Every HTML document follows a basic structure that includes several mandatory elements:</p>
+                    <pre class="code-example">
+<span class="comment">&lt;!-- This is a comment in HTML --&gt;</span>
+<span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;title&gt;</span>My First Web Page<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+    <span class="tag">&lt;h1&gt;</span>Hello, World!<span class="tag">&lt;/h1&gt;</span>
+    <span class="tag">&lt;p&gt;</span>This is my first web page.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></pre>
+                    
+                    <h3>Let's break down this structure:</h3>
+                    <ul>
+                        <li><strong>&lt;!DOCTYPE html&gt;</strong> - Declares the document type and HTML version</li>
+                        <li><strong>&lt;html&gt;</strong> - The root element of an HTML page</li>
+                        <li><strong>&lt;head&gt;</strong> - Contains meta information about the page (not visible on the page)</li>
+                        <li><strong>&lt;title&gt;</strong> - Specifies a title for the page (shown in the browser tab)</li>
+                        <li><strong>&lt;body&gt;</strong> - Contains the visible page content</li>
+                        <li><strong>&lt;h1&gt;</strong> - Defines a large heading</li>
+                        <li><strong>&lt;p&gt;</strong> - Defines a paragraph</li>
+                    </ul>
+                </div>
+
+                <div class="lesson-section">
+                    <h2>HTML Headings</h2>
+                    <p>HTML provides six different heading levels, from &lt;h1&gt; (most important) to &lt;h6&gt; (least important).</p>
+                    <pre class="code-example">
+<span class="tag">&lt;h1&gt;</span>This is Heading 1<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;h2&gt;</span>This is Heading 2<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;h3&gt;</span>This is Heading 3<span class="tag">&lt;/h3&gt;</span>
+<span class="tag">&lt;h4&gt;</span>This is Heading 4<span class="tag">&lt;/h4&gt;</span>
+<span class="tag">&lt;h5&gt;</span>This is Heading 5<span class="tag">&lt;/h5&gt;</span>
+<span class="tag">&lt;h6&gt;</span>This is Heading 6<span class="tag">&lt;/h6&gt;</span></pre>
+                    
+                    <div class="example-output">
+                        <h1>This is Heading 1</h1>
+                        <h2>This is Heading 2</h2>
+                        <h3>This is Heading 3</h3>
+                        <h4>This is Heading 4</h4>
+                        <h5>This is Heading 5</h5>
+                        <h6>This is Heading 6</h6>
+                    </div>
+                    
+                    <p>Headings are important for both structure and SEO (Search Engine Optimization). Use them logically to create a hierarchy of content on your page.</p>
+                </div>
+
+                <div class="lesson-section">
+                    <h2>HTML Paragraphs</h2>
+                    <p>Paragraphs are defined with the &lt;p&gt; tag and represent blocks of text.</p>
+                    <pre class="code-example">
+<span class="tag">&lt;p&gt;</span>This is a paragraph. It represents a block of text that is separated from other blocks of text by a blank line.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;p&gt;</span>This is another paragraph. HTML automatically adds some space before and after paragraphs.<span class="tag">&lt;/p&gt;</span></pre>
+                    
+                    <div class="example-output">
+                        <p>This is a paragraph. It represents a block of text that is separated from other blocks of text by a blank line.</p>
+                        <p>This is another paragraph. HTML automatically adds some space before and after paragraphs.</p>
+                    </div>
+                </div>
+
+                <div class="lesson-section">
+                    <h2>HTML Links</h2>
+                    <p>Links allow users to click and navigate to other pages. They are created with the &lt;a&gt; tag.</p>
+                    <pre class="code-example">
+<span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"https://www.example.com"</span><span class="tag">&gt;</span>Visit Example.com<span class="tag">&lt;/a&gt;</span>
+<span class="tag">&lt;a</span> <span class="attribute">href</span>=<span class="value">"contact.html"</span><span class="tag">&gt;</span>Contact Us<span class="tag">&lt;/a&gt;</span></pre>
+                    
+                    <div class="example-output">
+                        <a href="https://www.example.com">Visit Example.com</a><br>
+                        <a href="#">Contact Us</a>
+                    </div>
+                    
+                    <p>The <code>href</code> attribute specifies the destination of the link. It can be a URL (absolute link) or a path to another file in your website (relative link).</p>
+                </div>
+
+                <div class="lesson-section">
+                    <h2>HTML Images</h2>
+                    <p>Images make your website visually appealing. Add them using the &lt;img&gt; tag.</p>
+                    <pre class="code-example">
+<span class="tag">&lt;img</span> <span class="attribute">src</span>=<span class="value">"image.jpg"</span> <span class="attribute">alt</span>=<span class="value">"Description of the image"</span> <span class="attribute">width</span>=<span class="value">"300"</span> <span class="attribute">height</span>=<span class="value">"200"</span><span class="tag">&gt;</span></pre>
+                    
+                    <p>The <code>src</code> attribute specifies the path to the image, and the <code>alt</code> attribute provides alternative text for accessibility and SEO. The <code>width</code> and <code>height</code> attributes set the dimensions of the image.</p>
+                    <p>Note: The &lt;img&gt; tag is a self-closing tag, meaning it doesn't need a closing tag.</p>
+                </div>
+
+                <div class="lesson-section">
+                    <h2>HTML Lists</h2>
+                    <p>HTML provides two main types of lists: ordered lists and unordered lists.</p>
+                    
+                    <h3>Unordered Lists</h3>
+                    <pre class="code-example">
+<span class="tag">&lt;ul&gt;</span>
+    <span class="tag">&lt;li&gt;</span>Item 1<span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span>Item 2<span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span>Item 3<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span></pre>
+                    
+                    <div class="example-output">
+                        <ul>
+                            <li>Item 1</li>
+                            <li>Item 2</li>
+                            <li>Item 3</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Ordered Lists</h3>
+                    <pre class="code-example">
+<span class="tag">&lt;ol&gt;</span>
+    <span class="tag">&lt;li&gt;</span>First Step<span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span>Second Step<span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span>Third Step<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ol&gt;</span></pre>
+                    
+                    <div class="example-output">
+                        <ol>
+                            <li>First Step</li>
+                            <li>Second Step</li>
+                            <li>Third Step</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="lesson-section practice-exercise">
+                    <h2>Practice Exercise</h2>
+                    <p>Try creating a basic HTML page that includes:</p>
+                    <ol>
+                        <li>A heading</li>
+                        <li>A paragraph about something you're interested in</li>
+                        <li>A link to your favorite website</li>
+                        <li>An unordered list with 3-5 items</li>
+                    </ol>
+                    <p>You can use the code playground on our homepage to practice!</p>
+                </div>
+
+                <div class="lesson-navigation">
+                    <button disabled class="btn-secondary">Previous Lesson</button>
+                    <button class="btn-primary next-lesson">Next Lesson: HTML Attributes</button>
+                </div>
+                
+                <div class="back-to-courses">
+                    <a href="index.html#courses" class="btn-secondary">Back to All Courses</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter for new tutorials, tips, and updates.</p>
+            <form id="newsletterForm" class="newsletter-form">
+                <input type="email" id="emailInput" placeholder="Enter your email" required>
+                <button type="submit" class="btn-primary">Subscribe</button>
+            </form>
+            <div id="newsletterMessage"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3><span class="highlight">Easy</span> Coding</h3>
+                    <p>Learning to code made simple.</p>
+                    <p class="credits">Created by ISHIMWE Patience, a student at Mount Kenya University Rwanda.</p>
+                    <p class="credits">Special thanks to <a href="https://academy.powerlearnprojectafrica.org" target="_blank">Power Learn Project Africa</a> for hosting this website competition.</p>
+                    <p class="site-info">This platform provides interactive coding tutorials, practical exercises, and a sandbox environment to help beginners master web development technologies with ease.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#courses">Courses</a></li>
+                        <li><a href="index.html#playground">Playground</a></li>
+                        <li><a href="index.html#resources">Resources</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> info@easycoding.rw</p>
+                    <p><i class="fas fa-map-marker-alt"></i>MKU, Kigali, Rwanda</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Easy Coding. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    ></script>
+    <script>
+        // Course-specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update course progress from localStorage
+            const courseId = 'html';
+            const progress = localStorage.getItem(`course_${courseId}_progress`) || 0;
+            
+            const progressBar = document.getElementById('courseProgressBar');
+            const progressText = document.getElementById('courseProgressText');
+            
+            progressBar.style.width = `${progress}%`;
+            progressText.textContent = `${progress}% Complete`;
+            
+            // Next lesson button
+            const nextLessonBtn = document.querySelector('.next-lesson');
+            nextLessonBtn.addEventListener('click', function() {
+                // In a real app, this would navigate to the next lesson
+                alert('This is a demo. In a full application, this would navigate to the next lesson.');
+                
+                // Update progress
+                let newProgress = Math.min(100, parseInt(progress) + 20);
+                localStorage.setItem(`course_${courseId}_progress`, newProgress);
+                
+                // Update progress display
+                progressBar.style.width = `${newProgress}%`;
+                progressText.textContent = `${newProgress}% Complete`;
+            });
+        });
+    </script>
+    <script src="assets/js/dark-mode.js"></script>
+
+</html>
+

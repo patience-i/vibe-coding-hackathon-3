@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Elements Reference - Easy Coding</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><span class="highlight">Easy</span> Coding</h1>
+            </div>
+            <nav>
+                <input type="checkbox" id="nav-toggle" class="nav-toggle">
+                <label for="nav-toggle" class="nav-toggle-label">
+                    <i class="fas fa-bars"></i>
+                </label>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../courses/html.html">HTML</a></li>
+                    <li><a href="../courses/css.html">CSS</a></li>
+                    <li><a href="../courses/javascript.html">JavaScript</a></li>
+                    <li><a href="../playground.html">Playground</a></li>
+                    <li><a href="../references/index.html" class="active">References</a></li>
+                    <li><a href="../exercises/index.html">Exercises</a></li>
+                    <li><a href="../about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
+                <div class="theme-label">Dark Mode</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="reference-main">
+        <div class="container">
+            <h1>HTML Elements Reference</h1>
+            <p class="intro">A comprehensive guide to HTML elements, attributes, events, and colors.</p>
+            
+            <section id="elements">
+                <h2>HTML Elements</h2>
+                <div class="reference-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tag</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="a">
+                                <td>&lt;a&gt;</td>
+                                <td>Defines a hyperlink</td>
+                                <td><code>&lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;</code></td>
+                            </tr>
+                            <tr id="div">
+                                <td>&lt;div&gt;</td>
+                                <td>Defines a division or section in an HTML document</td>
+                                <td><code>&lt;div&gt;This is a division.&lt;/div&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td>&lt;h1&gt;</td>
+                                <td>Defines a level 1 heading</td>
+                                <td><code>&lt;h1&gt;This is a heading&lt;/h1&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td>&lt;p&gt;</td>
+                                <td>Defines a paragraph</td>
+                                <td><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td>&lt;img&gt;</td>
+                                <td>Defines an image</td>
+                                <td><code>&lt;img src="image.jpg" alt="Description"&gt;</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <section id="attributes">
+                <h2>HTML Attributes</h2>
+                <div class="reference-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Attribute</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>href</td>
+                                <td>Specifies the URL of the page the link goes to</td>
+                                <td><code>&lt;a href="https://example.com"&gt;Example&lt;/a&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td>class</td>
+                                <td>Specifies one or more class names for an element</td>
+                                <td><code>&lt;div class="container"&gt;Content&lt;/div&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td>id</td>
+                                <td>Specifies a unique id for an element</td>
+                                <td><code>&lt;div id="header"&gt;Header&lt;/div&gt;</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <section id="events">
+                <h2>HTML Events</h2>
+                <div class="reference-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Event</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>onclick</td>
+                                <td>Executed when the element is clicked</td>
+                                <td><code>&lt;button onclick="myFunction()"&gt;Click me&lt;/button&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td>onload</td>
+                                <td>Executed when the page has finished loading</td>
+                                <td><code>&lt;body onload="myFunction()"&gt;</code></td>
+                            </tr>
+                            <tr>
+                                <td>onchange</td>
+                                <td>Executed when the value of an element has changed</td>
+                                <td><code>&lt;input onchange="myFunction()"&gt;</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <section id="colors">
+                <h2>HTML Colors</h2>
+                <div class="reference-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Color Name</th>
+                                <th>Hex Value</th>
+                                <th>RGB Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Red</td>
+                                <td>#FF0000</td>
+                                <td>rgb(255, 0, 0)</td>
+                            </tr>
+                            <tr>
+                                <td>Green</td>
+                                <td>#00FF00</td>
+                                <td>rgb(0, 255, 0)</td>
+                            </tr>
+                            <tr>
+                                <td>Blue</td>
+                                <td>#0000FF</td>
+                                <td>rgb(0, 0, 255)</td>
+                            </tr>
+                            <tr>
+                                <td>Black</td>
+                                <td>#000000</td>
+                                <td>rgb(0, 0, 0)</td>
+                            </tr>
+                            <tr>
+                                <td>White</td>
+                                <td>#FFFFFF</td>
+                                <td>rgb(255, 255, 255)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3><span class="highlight">Easy</span> Coding</h3>
+                    <p>Learning to code made simple.</p>
+                    <p class="credits">Created by ISHIMWE Patience, a student at Mount Kenya University Rwanda.</p>
+                    <p class="credits">Special thanks to <a href="https://academy.powerlearnprojectafrica.org" target="_blank">Power Learn Project Africa</a> for hosting this website competition.</p>
+                    <p class="site-info">This platform provides interactive coding tutorials, practical exercises, and a sandbox environment to help beginners master web development technologies with ease.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../courses/html.html">HTML</a></li>
+                        <li><a href="../courses/css.html">CSS</a></li>
+                        <li><a href="../courses/javascript.html">JavaScript</a></li>
+                        <li><a href="../playground.html">Playground</a></li>
+                        <li><a href="../about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> info@easycoding.rw</p>
+                    <p><i class="fas fa-map-marker-alt"></i>MKU, Kigali, Rwanda</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Easy Coding. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    ></script>
+    <script src="../assets/js/dark-mode.js"></script>
+
+</html>
+

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Variables - Easy Coding</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/x-icon">
+    <style>
+        /* Tutorial-specific styles */
+        .tutorial-header {
+            background-color: #F7DF1E; /* JavaScript yellow color */
+            color: black;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .tutorial-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        body.dark-mode .tutorial-content {
+            background-color: var(--dark-card);
+        }
+        
+        .tutorial-section {
+            margin-bottom: 30px;
+        }
+        
+        .example-box {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .example-header {
+            background-color: #f8f8f8;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            font-weight: 600;
+        }
+        
+        body.dark-mode .example-header {
+            background-color: var(--dark-accent);
+        }
+        
+        .example-code {
+            padding: 15px;
+            background-color: #f8f8f8;
+            font-family: 'Consolas', 'Monaco', monospace;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        body.dark-mode .example-code {
+            background-color: var(--dark-accent);
+        }
+        
+        .example-result {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: white;
+        }
+        
+        body.dark-mode .example-result {
+            background-color: var(--dark-card);
+        }
+        
+        .try-it-yourself {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tutorial-header">
+        <h1>JavaScript Variables</h1>
+        <p>Learn how to declare and use variables in JavaScript</p>
+    </div>
+
+    <div class="tutorial-content">
+        <div class="tutorial-section">
+            <h2>JavaScript Variables</h2>
+            <p>Variables are containers for storing data values.</p>
+            <p>In this example, <code>x</code>, <code>y</code>, and <code>z</code> are variables, declared with the <code>var</code> keyword:</p>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+var x = 5;
+var y = 6;
+var z = x + y;</div>
+                <div class="example-result">
+                    <p>The value of z is 11</p>
+                </div>
+            </div>
+            
+            <p>From the example above, you can expect:</p>
+            <ul>
+                <li>x stores the value 5</li>
+                <li>y stores the value 6</li>
+                <li>z stores the value 11</li>
+            </ul>
+            
+            <div class="try-it-yourself">
+                <a href="../playground.html?js=var%20x%20%3D%205%3B%0Avar%20y%20%3D%206%3B%0Avar%20z%20%3D%20x%20%2B%20y%3B%0Aconsole.log(%22The%20value%20of%20z%20is%20%22%20%2B%20z)%3B" class="btn-primary">Try it Yourself »</a>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>Modern JavaScript Variables</h2>
+            <p>In modern JavaScript (2015+), there are three ways of declaring variables:</p>
+            <ul>
+                <li>Using <code>var</code></li>
+                <li>Using <code>let</code></li>
+                <li>Using <code>const</code></li>
+            </ul>
+            
+            <p>This tutorial uses <code>var</code> in most examples, but in modern JavaScript, you should prefer to use <code>let</code> and <code>const</code>:</p>
+            
+            <div class="example-box">
+                <div class="example-header">Example using let:</div>
+                <div class="example-code">
+let x = 5;
+let y = 6;
+let z = x + y;</div>
+            </div>
+            
+            <div class="example-box">
+                <div class="example-header">Example using const:</div>
+                <div class="example-code">
+const x = 5;
+const y = 6;
+const z = x + y;</div>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>When to Use var, let, or const?</h2>
+            <ol>
+                <li>Always declare variables</li>
+                <li>Always use <code>const</code> if the value should not be changed</li>
+                <li>Only use <code>let</code> if you can't use <code>const</code></li>
+                <li>Only use <code>var</code> if you must support old browsers</li>
+            </ol>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>JavaScript Identifiers</h2>
+            <p>All JavaScript variables must be identified with unique names.</p>
+            <p>These unique names are called identifiers.</p>
+            <p>Identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume).</p>
+            <p>The general rules for constructing names for variables (unique identifiers) are:</p>
+            <ul>
+                <li>Names can contain letters, digits, underscores, and dollar signs.</li>
+                <li>Names must begin with a letter</li>
+                <li>Names can also begin with $ and _ (but we will not use it in this tutorial)</li>
+                <li>Names are case sensitive (y and Y are different variables)</li>
+                <li>Reserved words (like JavaScript keywords) cannot be used as names</li>
+            </ul>
+            
+            <div class="example-box">
+                <div class="example-header">Example of JavaScript identifiers:</div>
+                <div class="example-code">
+// Valid identifiers
+let firstName = "John";
+let lastName = "Doe";
+let price = 19.90;
+let tax = 0.20;
+let fullPrice = price + (price * tax);
+
+// Invalid identifiers (will cause errors)
+// let 1stName = "John";    // Cannot start with a digit
+// let last-name = "Doe";   // Cannot use hyphens
+// let full price = 19.90;  // Cannot include spaces</div>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>JavaScript Data Types</h2>
+            <p>JavaScript variables can hold numbers like 100 and text values like "John Doe".</p>
+            <p>In programming, text values are called text strings.</p>
+            <p>JavaScript can handle many types of data, but for now, just think of numbers and strings.</p>
+            <p>Strings are written inside double or single quotes. Numbers are written without quotes.</p>
+            <p>If you put a number in quotes, it will be treated as a text string.</p>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+// Numbers
+let length = 16;
+let weight = 7.5;
+
+// Strings
+let color = "Yellow";
+let lastName = 'Johnson';
+
+// Mixing
+let x = 16 + "Volvo";  // Result: "16Volvo"</div>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>Declaring (Creating) JavaScript Variables</h2>
+            <p>Creating a variable in JavaScript is called "declaring" a variable.</p>
+            <p>You declare a JavaScript variable with the <code>var</code>, <code>let</code> or <code>const</code> keyword:</p>
+            
+            <div class="example-code">
+var carName;
+let carName;
+const carName;</div>
+            
+            <p>After the declaration, the variable has no value (technically it is <code>undefined</code>).</p>
+            <p>To assign a value to the variable, use the equal sign:</p>
+            
+            <div class="example-code">
+carName = "Volvo";</div>
+            
+            <p>You can also assign a value to the variable when you declare it:</p>
+            
+            <div class="example-code">
+let carName = "Volvo";</div>
+            
+            <p>In the example below, we create a variable called <code>carName</code> and assign the value "Volvo" to it.</p>
+            <p>Then we "output" the value inside an HTML paragraph with id="demo":</p>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+&lt;p id="demo"&gt;&lt;/p&gt;
+
+&lt;script&gt;
+let carName = "Volvo";
+document.getElementById("demo").innerHTML = carName;
+&lt;/script&gt;</div>
+            </div>
+            
+            <div class="try-it-yourself">
+                <a href="../playground.html?html=%3C!DOCTYPE%20html%3E%0A%3Chtml%3E%0A%3Cbody%3E%0A%0A%3Cp%20id%3D%22demo%22%3E%3C%2Fp%3E%0A%0A%3Cscript%3E%0Alet%20carName%20%3D%20%22Volvo%22%3B%0Adocument.getElementById(%22demo%22).innerHTML%20%3D%20carName%3B%0A%3C%2Fscript%3E%0A%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E" class="btn-primary">Try it Yourself »</a>
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="../courses/javascript.html?section=../tutorials/javascript-syntax.html" class="btn-secondary">❮ Previous</a>
+            <a href="../courses/javascript.html?section=../tutorials/javascript-operators.html" class="btn-primary">Next ❯</a>
+        </div>
+    </div>
+    
+</html>
+

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Operators - Easy Coding</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/x-icon">
+    <style>
+        /* Tutorial-specific styles */
+        .tutorial-header {
+            background-color: #F7DF1E; /* JavaScript yellow color */
+            color: black;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .tutorial-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        body.dark-mode .tutorial-content {
+            background-color: var(--dark-card);
+        }
+        
+        .tutorial-section {
+            margin-bottom: 30px;
+        }
+        
+        .example-box {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .example-header {
+            background-color: #f8f8f8;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            font-weight: 600;
+        }
+        
+        body.dark-mode .example-header {
+            background-color: var(--dark-accent);
+        }
+        
+        .example-code {
+            padding: 15px;
+            background-color: #f8f8f8;
+            font-family: 'Consolas', 'Monaco', monospace;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        body.dark-mode .example-code {
+            background-color: var(--dark-accent);
+        }
+        
+        .example-result {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: white;
+        }
+        
+        body.dark-mode .example-result {
+            background-color: var(--dark-card);
+        }
+        
+        .try-it-yourself {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #f8f8f8;
+            font-weight: bold;
+        }
+        
+        body.dark-mode th {
+            background-color: var(--dark-accent);
+        }
+        
+        tr:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        body.dark-mode tr:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="tutorial-header">
+        <h1>JavaScript Operators</h1>
+        <p>Learn about the different types of operators in JavaScript</p>
+    </div>
+
+    <div class="tutorial-content">
+        <div class="tutorial-section">
+            <h2>JavaScript Operators</h2>
+            <p>JavaScript operators are used to assign values, compare values, perform arithmetic operations, and more.</p>
+            <p>We will look at the following types of operators:</p>
+            <ul>
+                <li>Arithmetic operators</li>
+                <li>Assignment operators</li>
+                <li>Comparison operators</li>
+                <li>Logical operators</li>
+                <li>Type operators</li>
+            </ul>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>JavaScript Arithmetic Operators</h2>
+            <p>Arithmetic operators perform arithmetic on numbers (literals or variables).</p>
+            
+            <table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>Addition</td>
+                    <td>5 + 2 = 7</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>Subtraction</td>
+                    <td>5 - 2 = 3</td>
+                </tr>
+                <tr>
+                    <td>*</td>
+                    <td>Multiplication</td>
+                    <td>5 * 2 = 10</td>
+                </tr>
+                <tr>
+                    <td>/</td>
+                    <td>Division</td>
+                    <td>5 / 2 = 2.5</td>
+                </tr>
+                <tr>
+                    <td>%</td>
+                    <td>Modulus (Remainder)</td>
+                    <td>5 % 2 = 1</td>
+                </tr>
+                <tr>
+                    <td>++</td>
+                    <td>Increment</td>
+                    <td>let x = 5; x++; // x is now 6</td>
+                </tr>
+                <tr>
+                    <td>--</td>
+                    <td>Decrement</td>
+                    <td>let x = 5; x--; // x is now 4</td>
+                </tr>
+                <tr>
+                    <td>**</td>
+                    <td>Exponentiation (ES2016)</td>
+                    <td>5 ** 2 = 25</td>
+                </tr>
+            </table>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+// Arithmetic operators
+let a = 10;
+let b = 3;
+
+let addition = a + b;       // 13
+let subtraction = a - b;    // 7
+let multiplication = a * b; // 30
+let division = a / b;       // 3.33...
+let modulus = a % b;        // 1
+let exponentiation = a ** b; // 1000 (10^3)
+
+// Increment and decrement
+let c = 5;
+c++;    // c is now 6
+let d = 5;
+d--;    // d is now 4</div>
+            </div>
+            
+            <div class="try-it-yourself">
+                <a href="../playground.html?js=// Arithmetic operators%0Alet a = 10%3B%0Alet b = 3%3B%0A%0Alet addition = a %2B b%3B       // 13%0Alet subtraction = a - b%3B    // 7%0Alet multiplication = a * b%3B // 30%0Alet division = a / b%3B       // 3.33...%0Alet modulus = a % b%3B        // 1%0Alet exponentiation = a ** b%3B // 1000 (10^3)%0A%0A// Increment and decrement%0Alet c = 5%3B%0Ac%2B%2B%3B    // c is now 6%0Alet d = 5%3B%0Ad--%3B    // d is now 4%0A%0A// Output results%0Aconsole.log(%22Addition:%22, addition)%3B%0Aconsole.log(%22Subtraction:%22, subtraction)%3B%0Aconsole.log(%22Multiplication:%22, multiplication)%3B%0Aconsole.log(%22Division:%22, division)%3B%0Aconsole.log(%22Modulus:%22, modulus)%3B%0Aconsole.log(%22Exponentiation:%22, exponentiation)%3B%0Aconsole.log(%22After increment, c = %22 %2B c)%3B%0Aconsole.log(%22After decrement, d = %22 %2B d)%3B" class="btn-primary">Try it Yourself »</a>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>JavaScript Assignment Operators</h2>
+            <p>Assignment operators assign values to JavaScript variables.</p>
+            
+            <table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Example</th>
+                    <th>Same As</th>
+                </tr>
+                <tr>
+                    <td>=</td>
+                    <td>x = y</td>
+                    <td>x = y</td>
+                </tr>
+                <tr>
+                    <td>+=</td>
+                    <td>x += y</td>
+                    <td>x = x + y</td>
+                </tr>
+                <tr>
+                    <td>-=</td>
+                    <td>x -= y</td>
+                    <td>x = x - y</td>
+                </tr>
+                <tr>
+                    <td>*=</td>
+                    <td>x *= y</td>
+                    <td>x = x * y</td>
+                </tr>
+                <tr>
+                    <td>/=</td>
+                    <td>x /= y</td>
+                    <td>x = x / y</td>
+                </tr>
+                <tr>
+                    <td>%=</td>
+                    <td>x %= y</td>
+                    <td>x = x % y</td>
+                </tr>
+                <tr>
+                    <td>**=</td>
+                    <td>x **= y</td>
+                    <td>x = x ** y</td>
+                </tr>
+            </table>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+// Assignment operators
+let x = 10;
+
+x += 5;  // x = x + 5;  (x is now 15)
+x -= 3;  // x = x - 3;  (x is now 12)
+x *= 2;  // x = x * 2;  (x is now 24)
+x /= 4;  // x = x / 4;  (x is now 6)
+x %= 4;  // x = x % 4;  (x is now 2)
+x **= 3; // x = x ** 3; (x is now 8)</div>
+            </div>
+            
+            <div class="try-it-yourself">
+                <a href="../playground.html?js=// Assignment operators%0Alet x = 10%3B%0Aconsole.log(%22Initial x value: %22 %2B x)%3B%0A%0Ax %2B= 5%3B  // x = x %2B 5%3B%0Aconsole.log(%22After x %2B= 5: %22 %2B x)%3B%0A%0Ax -= 3%3B  // x = x - 3%3B%0Aconsole.log(%22After x -= 3: %22 %2B x)%3B%0A%0Ax *= 2%3B  // x = x * 2%3B%0Aconsole.log(%22After x *= 2: %22 %2B x)%3B%0A%0Ax /= 4%3B  // x = x / 4%3B%0Aconsole.log(%22After x /= 4: %22 %2B x)%3B%0A%0Ax %= 4%3B  // x = x % 4%3B%0Aconsole.log(%22After x %= 4: %22 %2B x)%3B%0A%0Ax **= 3%3B // x = x ** 3%3B%0Aconsole.log(%22After x **= 3: %22 %2B x)%3B" class="btn-primary">Try it Yourself »</a>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>JavaScript Comparison Operators</h2>
+            <p>Comparison operators compare two values and return a boolean value (true or false).</p>
+            
+            <table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>==</td>
+                    <td>Equal to (value only)</td>
+                    <td>x == y</td>
+                </tr>
+                <tr>
+                    <td>===</td>
+                    <td>Equal to (value and type)</td>
+                    <td>x === y</td>
+                </tr>
+                <tr>
+                    <td>!=</td>
+                    <td>Not equal (value only)</td>
+                    <td>x != y</td>
+                </tr>
+                <tr>
+                    <td>!==</td>
+                    <td>Not equal (value and type)</td>
+                    <td>x !== y</td>
+                </tr>
+                <tr>
+                    <td>></td>
+                    <td>Greater than</td>
+                    <td>x > y</td>
+                </tr>
+                <tr>
+                    <td><</td>
+                    <td>Less than</td>
+                    <td>x < y</td>
+                </tr>
+                <tr>
+                    <td>>=</td>
+                    <td>Greater than or equal to</td>
+                    <td>x >= y</td>
+                </tr>
+                <tr>
+                    <td><=</td>
+                    <td>Less than or equal to</td>
+                    <td>x <= y</td>
+                </tr>
+                <tr>
+                    <td>?</td>
+                    <td>Ternary operator</td>
+                    <td>condition ? exprIfTrue : exprIfFalse</td>
+                </tr>
+            </table>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+// Comparison operators
+let a = 5;
+let b = "5";
+let c = 8;
+
+console.log(a == b);   // true (value is equal)
+console.log(a === b);  // false (value is equal but type is different)
+console.log(a != c);   // true (value is not equal)
+console.log(a !== b);  // true (type is different)
+console.log(c > a);    // true
+console.log(c < a);    // false
+console.log(a >= 5);   // true
+console.log(c <= 5);   // false
+
+// Ternary operator
+let age = 20;
+let canVote = age >= 18 ? "Yes" : "No";
+console.log(canVote);  // "Yes"</div>
+            </div>
+            
+            <div class="try-it-yourself">
+                <a href="../playground.html?js=// Comparison operators%0Alet a = 5%3B%0Alet b = %225%22%3B%0Alet c = 8%3B%0A%0Aconsole.log(%22a == b: %22 %2B (a == b))%3B   // true (value is equal)%0Aconsole.log(%22a === b: %22 %2B (a === b))%3B  // false (value is equal but type is different)%0Aconsole.log(%22a != c: %22 %2B (a != c))%3B   // true (value is not equal)%0Aconsole.log(%22a !== b: %22 %2B (a !== b))%3B  // true (type is different)%0Aconsole.log(%22c > a: %22 %2B (c > a))%3B    // true%0Aconsole.log(%22c < a: %22 %2B (c < a))%3B    // false%0Aconsole.log(%22a >= 5: %22 %2B (a >= 5))%3B   // true%0Aconsole.log(%22c <= 5: %22 %2B (c <= 5))%3B   // false%0A%0A// Ternary operator%0Alet age = 20%3B%0Alet canVote = age >= 18 ? %22Yes%22 : %22No%22%3B%0Aconsole.log(%22Can vote: %22 %2B canVote)%3B  // %22Yes%22" class="btn-primary">Try it Yourself »</a>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>JavaScript Logical Operators</h2>
+            <p>Logical operators are used to determine the logic between variables or values.</p>
+            
+            <table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>&&</td>
+                    <td>Logical AND</td>
+                    <td>(x && y) is true if both x and y are true</td>
+                </tr>
+                <tr>
+                    <td>||</td>
+                    <td>Logical OR</td>
+                    <td>(x || y) is true if either x or y is true</td>
+                </tr>
+                <tr>
+                    <td>!</td>
+                    <td>Logical NOT</td>
+                    <td>!x is true if x is false</td>
+                </tr>
+            </table>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+// Logical operators
+let x = 6;
+let y = 3;
+
+// AND operator
+console.log(x > 5 && y < 5);  // true (both conditions are true)
+console.log(x > 10 && y < 5); // false (first condition is false)
+
+// OR operator
+console.log(x > 5 || y > 5);  // true (first condition is true)
+console.log(x < 5 || y > 5);  // false (both conditions are false)
+
+// NOT operator
+console.log(!(x > 5));  // false (because x > 5 is true)
+console.log(!(y > 5));  // true (because y > 5 is false)</div>
+            </div>
+            
+            <div class="try-it-yourself">
+                <a href="../playground.html?js=// Logical operators%0Alet x = 6%3B%0Alet y = 3%3B%0A%0A// AND operator%0Aconsole.log(%22x > 5 && y < 5: %22 %2B (x > 5 && y < 5))%3B  // true (both conditions are true)%0Aconsole.log(%22x > 10 && y < 5: %22 %2B (x > 10 && y < 5))%3B // false (first condition is false)%0A%0A// OR operator%0Aconsole.log(%22x > 5 || y > 5: %22 %2B (x > 5 || y > 5))%3B  // true (first condition is true)%0Aconsole.log(%22x < 5 || y > 5: %22 %2B (x < 5 || y > 5))%3B  // false (both conditions are false)%0A%0A// NOT operator%0Aconsole.log(%22!(x > 5): %22 %2B (!(x > 5)))%3B  // false (because x > 5 is true)%0Aconsole.log(%22!(y > 5): %22 %2B (!(y > 5)))%3B  // true (because y > 5 is false)" class="btn-primary">Try it Yourself »</a>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>JavaScript Type Operators</h2>
+            <p>Type operators are used to check the type of a variable or expression.</p>
+            
+            <table>
+                <tr>
+                    <th>Operator</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td>typeof</td>
+                    <td>Returns the type of a variable</td>
+                    <td>typeof x</td>
+                </tr>
+                <tr>
+                    <td>instanceof</td>
+                    <td>Returns true if an object is an instance of an object type</td>
+                    <td>x instanceof Array</td>
+                </tr>
+            </table>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+// Type operators
+let str = "Hello";
+let num = 123;
+let bool = true;
+let arr = [1, 2, 3];
+let obj = {name: "John", age: 30};
+let func = function() { return "Hello"; };
+let nullVar = null;
+let undefinedVar;
+
+console.log(typeof str);        // "string"
+console.log(typeof num);        // "number"
+console.log(typeof bool);       // "boolean"
+console.log(typeof arr);        // "object"
+console.log(typeof obj);        // "object"
+console.log(typeof func);       // "function"
+console.log(typeof nullVar);    // "object" (this is a known JavaScript quirk)
+console.log(typeof undefinedVar); // "undefined"
+
+// instanceof operator
+console.log(arr instanceof Array);  // true
+console.log(obj instanceof Array);  // false</div>
+            </div>
+            
+            <div class="try-it-yourself">
+                <a href="../playground.html?js=// Type operators%0Alet str = %22Hello%22%3B%0Alet num = 123%3B%0Alet bool = true%3B%0Alet arr = [1, 2, 3]%3B%0Alet obj = {name: %22John%22, age: 30}%3B%0Alet func = function() { return %22Hello%22%3B }%3B%0Alet nullVar = null%3B%0Alet undefinedVar%3B%0A%0Aconsole.log(%22typeof str: %22 %2B typeof str)%3B        // %22string%22%0Aconsole.log(%22typeof num: %22 %2B typeof num)%3B        // %22number%22%0Aconsole.log(%22typeof bool: %22 %2B typeof bool)%3B       // %22boolean%22%0Aconsole.log(%22typeof arr: %22 %2B typeof arr)%3B        // %22object%22%0Aconsole.log(%22typeof obj: %22 %2B typeof obj)%3B        // %22object%22%0Aconsole.log(%22typeof func: %22 %2B typeof func)%3B       // %22function%22%0Aconsole.log(%22typeof nullVar: %22 %2B typeof nullVar)%3B    // %22object%22 (this is a known JavaScript quirk)%0Aconsole.log(%22typeof undefinedVar: %22 %2B typeof undefinedVar)%3B // %22undefined%22%0A%0A// instanceof operator%0Aconsole.log(%22arr instanceof Array: %22 %2B (arr instanceof Array))%3B  // true%0Aconsole.log(%22obj instanceof Array: %22 %2B (obj instanceof Array))%3B  // false" class="btn-primary">Try it Yourself »</a>
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="../courses/javascript.html?section=../tutorials/javascript-variables.html" class="btn-secondary">❮ Previous</a>
+            <a href="../courses/javascript.html?section=../tutorials/javascript-data-types.html" class="btn-primary">Next ❯</a>
+        </div>
+    </div>
+    
+</html>
+

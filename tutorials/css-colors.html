@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Colors - Easy Coding</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/x-icon">
+    <style>
+        /* Tutorial-specific styles */
+        .tutorial-header {
+            background-color: #2965f1; /* CSS blue color */
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .tutorial-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        body.dark-mode .tutorial-content {
+            background-color: var(--dark-card);
+        }
+        
+        .tutorial-section {
+            margin-bottom: 30px;
+        }
+        
+        .example-box {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .example-header {
+            background-color: #f8f8f8;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            font-weight: 600;
+        }
+        
+        body.dark-mode .example-header {
+            background-color: var(--dark-accent);
+        }
+        
+        .example-code {
+            padding: 15px;
+            background-color: #f8f8f8;
+            font-family: 'Consolas', 'Monaco', monospace;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        body.dark-mode .example-code {
+            background-color: var(--dark-accent);
+        }
+        
+        .example-result {
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: white;
+        }
+        
+        body.dark-mode .example-result {
+            background-color: var(--dark-card);
+        }
+        
+        .try-it-yourself {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        /* Color demo boxes */
+        .color-box {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tutorial-header">
+        <h1>CSS Colors</h1>
+        <p>Learn how to use colors in CSS</p>
+    </div>
+
+    <div class="tutorial-content">
+        <div class="tutorial-section">
+            <h2>CSS Colors</h2>
+            <p>Colors are specified using predefined color names, or RGB, HEX, HSL, RGBA, HSLA values.</p>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>CSS Color Names</h2>
+            <p>In CSS, a color can be specified by using a predefined color name:</p>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+&lt;h1 style="background-color:Tomato;"&gt;Tomato&lt;/h1&gt;
+&lt;h1 style="background-color:Orange;"&gt;Orange&lt;/h1&gt;
+&lt;h1 style="background-color:DodgerBlue;"&gt;DodgerBlue&lt;/h1&gt;
+&lt;h1 style="background-color:MediumSeaGreen;"&gt;MediumSeaGreen&lt;/h1&gt;
+&lt;h1 style="background-color:Gray;"&gt;Gray&lt;/h1&gt;
+&lt;h1 style="background-color:SlateBlue;"&gt;SlateBlue&lt;/h1&gt;
+&lt;h1 style="background-color:Violet;"&gt;Violet&lt;/h1&gt;
+&lt;h1 style="background-color:LightGray;"&gt;LightGray&lt;/h1&gt;</div>
+                <div class="example-result">
+                    <h1 style="background-color:Tomato;">Tomato</h1>
+                    <h1 style="background-color:Orange;">Orange</h1>
+                    <h1 style="background-color:DodgerBlue;">DodgerBlue</h1>
+                    <h1 style="background-color:MediumSeaGreen;">MediumSeaGreen</h1>
+                    <h1 style="background-color:Gray;">Gray</h1>
+                    <h1 style="background-color:SlateBlue;">SlateBlue</h1>
+                    <h1 style="background-color:Violet;">Violet</h1>
+                    <h1 style="background-color:LightGray;">LightGray</h1>
+                </div>
+            </div>
+            
+            <div class="try-it-yourself">
+                <a href="../playground.html?html=%3C!DOCTYPE%20html%3E%0A%3Chtml%3E%0A%3Cbody%3E%0A%0A%3Ch1%20style%3D%22background-color%3ATomato%3B%22%3ETomato%3C%2Fh1%3E%0A%3Ch1%20style%3D%22background-color%3AOrange%3B%22%3EOrange%3C%2Fh1%3E%0A%3Ch1%20style%3D%22background-color%3ADodgerBlue%3B%22%3EDodgerBlue%3C%2Fh1%3E%0A%3Ch1%20style%3D%22background-color%3AMediumSeaGreen%3B%22%3EMediumSeaGreen%3C%2Fh1%3E%0A%3Ch1%20style%3D%22background-color%3AGray%3B%22%3EGray%3C%2Fh1%3E%0A%3Ch1%20style%3D%22background-color%3ASlateBlue%3B%22%3ESlateBlue%3C%2Fh1%3E%0A%3Ch1%20style%3D%22background-color%3AViolet%3B%22%3EViolet%3C%2Fh1%3E%0A%3Ch1%20style%3D%22background-color%3ALightGray%3B%22%3ELightGray%3C%2Fh1%3E%0A%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E" class="btn-primary">Try it Yourself »</a>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>CSS Background Color</h2>
+            <p>You can set the background color for HTML elements:</p>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+&lt;h1 style="background-color:DodgerBlue;"&gt;Hello World&lt;/h1&gt;
+&lt;p style="background-color:Tomato;"&gt;Lorem ipsum...&lt;/p&gt;</div>
+                <div class="example-result">
+                    <h1 style="background-color:DodgerBlue;">Hello World</h1>
+                    <p style="background-color:Tomato;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+            
+            <div class="try-it-yourself">
+                <a href="../playground.html?html=%3C!DOCTYPE%20html%3E%0A%3Chtml%3E%0A%3Cbody%3E%0A%0A%3Ch1%20style%3D%22background-color%3ADodgerBlue%3B%22%3EHello%20World%3C%2Fh1%3E%0A%3Cp%20style%3D%22background-color%3ATomato%3B%22%3ELorem%20ipsum%20dolor%20sit%20amet%2C%20consectetur%20adipiscing%20elit%2C%20sed%20do%20eiusmod%20tempor%20incididunt%20ut%20labore%20et%20dolore%20magna%20aliqua.%3C%2Fp%3E%0A%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E" class="btn-primary">Try it Yourself »</a>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>CSS Text Color</h2>
+            <p>You can set the text color for HTML elements:</p>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+&lt;h1 style="color:Tomato;"&gt;Hello World&lt;/h1&gt;
+&lt;p style="color:DodgerBlue;"&gt;Lorem ipsum...&lt;/p&gt;
+&lt;p style="color:MediumSeaGreen;"&gt;Ut enim ad minim...&lt;/p&gt;</div>
+                <div class="example-result">
+                    <h1 style="color:Tomato;">Hello World</h1>
+                    <p style="color:DodgerBlue;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p style="color:MediumSeaGreen;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+            
+            <div class="try-it-yourself">
+                <a href="../playground.html?html=%3C!DOCTYPE%20html%3E%0A%3Chtml%3E%0A%3Cbody%3E%0A%0A%3Ch1%20style%3D%22color%3ATomato%3B%22%3EHello%20World%3C%2Fh1%3E%0A%3Cp%20style%3D%22color%3ADodgerBlue%3B%22%3ELorem%20ipsum%20dolor%20sit%20amet%2C%20consectetur%20adipiscing%20elit%2C%20sed%20do%20eiusmod%20tempor%20incididunt%20ut%20labore%20et%20dolore%20magna%20aliqua.%3C%2Fp%3E%0A%3Cp%20style%3D%22color%3AMediumSeaGreen%3B%22%3EUt%20enim%20ad%20minim%20veniam%2C%20quis%20nostrud%20exercitation%20ullamco%20laboris%20nisi%20ut%20aliquip%20ex%20ea%20commodo%20consequat.%3C%2Fp%3E%0A%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E" class="btn-primary">Try it Yourself »</a>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>CSS RGB and RGBA Colors</h2>
+            <p>RGB stands for Red, Green, and Blue.</p>
+            <p>An RGB color value represents the mixture of Red, Green, and Blue.</p>
+            <p>RGBA color values are an extension of RGB color values with an Alpha channel - which specifies the opacity (transparency) of the color.</p>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+&lt;h1 style="background-color:rgb(255, 0, 0);"&gt;rgb(255, 0, 0)&lt;/h1&gt;
+&lt;h1 style="background-color:rgb(0, 0, 255);"&gt;rgb(0, 0, 255)&lt;/h1&gt;
+&lt;h1 style="background-color:rgb(60, 179, 113);"&gt;rgb(60, 179, 113)&lt;/h1&gt;
+&lt;h1 style="background-color:rgba(255, 0, 0, 0.2);"&gt;rgba(255, 0, 0, 0.2)&lt;/h1&gt;
+&lt;h1 style="background-color:rgba(0, 0, 255, 0.5);"&gt;rgba(0, 0, 255, 0.5)&lt;/h1&gt;</div>
+                <div class="example-result">
+                    <h1 style="background-color:rgb(255, 0, 0);">rgb(255, 0, 0)</h1>
+                    <h1 style="background-color:rgb(0, 0, 255);">rgb(0, 0, 255)</h1>
+                    <h1 style="background-color:rgb(60, 179, 113);">rgb(60, 179, 113)</h1>
+                    <h1 style="background-color:rgba(255, 0, 0, 0.2);">rgba(255, 0, 0, 0.2)</h1>
+                    <h1 style="background-color:rgba(0, 0, 255, 0.5);">rgba(0, 0, 255, 0.5)</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>CSS HEX Colors</h2>
+            <p>A hexadecimal color is specified with: #RRGGBB, where the RR (red), GG (green) and BB (blue) hexadecimal integers specify the components of the color.</p>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+&lt;h1 style="background-color:#ff0000;"&gt;#ff0000&lt;/h1&gt;
+&lt;h1 style="background-color:#0000ff;"&gt;#0000ff&lt;/h1&gt;
+&lt;h1 style="background-color:#3cb371;"&gt;#3cb371&lt;/h1&gt;
+&lt;h1 style="background-color:#ee82ee;"&gt;#ee82ee&lt;/h1&gt;</div>
+                <div class="example-result">
+                    <h1 style="background-color:#ff0000;">#ff0000</h1>
+                    <h1 style="background-color:#0000ff;">#0000ff</h1>
+                    <h1 style="background-color:#3cb371;">#3cb371</h1>
+                    <h1 style="background-color:#ee82ee;">#ee82ee</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="tutorial-section">
+            <h2>CSS HSL and HSLA Colors</h2>
+            <p>HSL stands for Hue, Saturation, and Lightness.</p>
+            <p>HSLA color values are an extension of HSL with an Alpha channel - which specifies the opacity (transparency) of the color.</p>
+            
+            <div class="example-box">
+                <div class="example-header">Example:</div>
+                <div class="example-code">
+&lt;h1 style="background-color:hsl(0, 100%, 50%);"&gt;hsl(0, 100%, 50%)&lt;/h1&gt;
+&lt;h1 style="background-color:hsl(240, 100%, 50%);"&gt;hsl(240, 100%, 50%)&lt;/h1&gt;
+&lt;h1 style="background-color:hsl(147, 50%, 47%);"&gt;hsl(147, 50%, 47%)&lt;/h1&gt;
+&lt;h1 style="background-color:hsla(0, 100%, 50%, 0.3);"&gt;hsla(0, 100%, 50%, 0.3)&lt;/h1&gt;
+&lt;h1 style="background-color:hsla(240, 100%, 50%, 0.3);"&gt;hsla(240, 100%, 50%, 0.3)&lt;/h1&gt;</div>
+                <div class="example-result">
+                    <h1 style="background-color:hsl(0, 100%, 50%);">hsl(0, 100%, 50%)</h1>
+                    <h1 style="background-color:hsl(240, 100%, 50%);">hsl(240, 100%, 50%)</h1>
+                    <h1 style="background-color:hsl(147, 50%, 47%);">hsl(147, 50%, 47%)</h1>
+                    <h1 style="background-color:hsla(0, 100%, 50%, 0.3);">hsla(0, 100%, 50%, 0.3)</h1>
+                    <h1 style="background-color:hsla(240, 100%, 50%, 0.3);">hsla(240, 100%, 50%, 0.3)</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <a href="../courses/css.html?section=../tutorials/css-how-to.html" class="btn-secondary">❮ Previous</a>
+            <a href="../courses/css.html?section=../tutorials/css-backgrounds.html" class="btn-primary">Next ❯</a>
+        </div>
+    </div>
+    
+</html>
+
